@@ -1,0 +1,1244 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+<meta name="color-scheme" content="light dark" />
+<link rel="icon" href="data:," />
+<title>Rock Raymond Productions — Website Concept & Pitch</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@500;600;700&family=Barlow:wght@400;500;600;700&family=Barlow+Semi+Condensed:wght@600&family=Playfair+Display:ital,wght@0,700;0,800;0,900;1,700;1,900&family=Libre+Franklin:ital,wght@0,400;0,600;0,700;0,800;1,400&display=swap" rel="stylesheet">
+<style>
+  button,[role="button"],select,summary,input:not([type="checkbox"],[type="radio"]){min-height:2.25rem}
+  :root{
+    --bg:#f4f1ec; --surface:#ffffff; --surface2:#ece7dd; --ink:#1c1a17; --muted:#5c564c;
+    --line:#d9d2c4; --accent:#b3231b; --accent-ink:#ffffff; --gold:#a97b12; --gold-bg:#fdf3d7;
+    --ok:#1d7a3a; --warn:#9a6206; --bad:#b3231b;
+  }
+  @media (prefers-color-scheme: dark){
+    :root{ --bg:#171512; --surface:#211e1a; --surface2:#2a2721; --ink:#f0eadf; --muted:#b3a996;
+      --line:#3a352c; --gold-bg:#3a2f10; }
+  }
+  *{box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  body{margin:0;background:var(--bg);color:var(--ink);font-family:"Barlow",system-ui,sans-serif;font-size:16px;line-height:1.55}
+  h1,h2,h3,.cond{font-family:"Barlow Condensed","Barlow",sans-serif;letter-spacing:.01em}
+  a{color:var(--accent)}
+  .wrap{max-width:1120px;margin:0 auto;padding:0 18px}
+  /* ---------- Pitch chrome ---------- */
+  .pitchbar{background:var(--ink);color:var(--bg);padding:10px 0;font-size:.86rem}
+  .pitchbar .wrap{display:flex;flex-wrap:wrap;gap:8px 18px;align-items:center;justify-content:space-between}
+  .pitchbar b{font-weight:700}
+  .statuspill{display:inline-block;background:var(--gold);color:#171204;border-radius:999px;padding:2px 12px;font-weight:700;font-size:.8rem}
+  header.pitch{padding:34px 0 8px}
+  header.pitch h1{font-size:clamp(2rem,5.5vw,3.2rem);line-height:1.02;margin:0 0 10px;text-transform:uppercase}
+  header.pitch h1 span{color:var(--accent)}
+  header.pitch p.lede{font-size:1.08rem;color:var(--muted);max-width:46rem;margin:0}
+  .meta-row{display:flex;flex-wrap:wrap;gap:8px;margin:18px 0 4px}
+  .chip{background:var(--surface);border:1px solid var(--line);border-radius:8px;padding:7px 12px;font-size:.88rem}
+  .chip b{font-weight:700}
+  nav.toc{position:sticky;top:0;z-index:20;background:var(--bg);border-bottom:1px solid var(--line);padding:8px 0}
+  nav.toc .wrap{display:flex;gap:6px;flex-wrap:wrap}
+  nav.toc a{color:var(--ink);text-decoration:none;font-weight:600;font-size:.92rem;padding:9px 13px;border-radius:8px;min-height:2.25rem;display:inline-flex;align-items:center}
+  nav.toc a:hover{background:var(--surface2)}
+  @media(max-width:760px){
+    nav.toc .wrap{flex-wrap:nowrap;overflow-x:auto;-webkit-overflow-scrolling:touch;scrollbar-width:none}
+    nav.toc .wrap::-webkit-scrollbar{display:none}
+    nav.toc a{white-space:nowrap;flex:0 0 auto}
+  }
+  section{padding:30px 0}
+  section h2{font-size:clamp(1.55rem,3.6vw,2.2rem);text-transform:uppercase;margin:0 0 6px;line-height:1.05}
+  section h2 .num{color:var(--accent)}
+  .sub{color:var(--muted);max-width:44rem;margin:0 0 18px}
+  .card{background:var(--surface);border:1px solid var(--line);border-radius:12px;padding:20px}
+  .grid{display:grid;gap:14px}
+  @media(min-width:760px){.grid.c2{grid-template-columns:1fr 1fr}.grid.c3{grid-template-columns:repeat(3,1fr)}}
+  .btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;border-radius:8px;font-weight:700;text-decoration:none;padding:10px 18px;min-height:2.75rem;cursor:pointer;border:0;font-family:inherit;font-size:.98rem}
+  .btn-dark{background:var(--accent);color:var(--accent-ink)}
+  .btn-plain{background:var(--surface2);color:var(--ink);border:1px solid var(--line)}
+  /* ---------- Audit ---------- */
+  .finding{display:flex;gap:14px;padding:16px 0;border-bottom:1px solid var(--line)}
+  .finding:last-child{border-bottom:0}
+  .sev{flex:0 0 auto;font-weight:700;font-size:.78rem;letter-spacing:.06em;text-transform:uppercase;border-radius:6px;padding:4px 9px;height:fit-content;margin-top:2px}
+  .sev.high{background:#fbe3e1;color:var(--bad)}
+  .sev.med{background:var(--gold-bg);color:var(--warn)}
+  .sev.low{background:var(--surface2);color:var(--muted)}
+  @media(prefers-color-scheme:dark){.sev.high{background:#431512}}
+  .finding h3{margin:0 0 3px;font-size:1.15rem;font-family:"Barlow";font-weight:700;letter-spacing:0}
+  .finding p{margin:0;color:var(--muted)}
+  .finding p b{color:var(--ink)}
+  /* ---------- Calculator ---------- */
+  .calc-out{display:grid;gap:12px}
+  @media(min-width:760px){.calc-out{grid-template-columns:repeat(3,1fr)}}
+  .stat{background:var(--surface);border:1px solid var(--line);border-radius:12px;padding:16px}
+  .stat .v{font-family:"Barlow Condensed";font-size:2rem;font-weight:700;line-height:1}
+  .stat .l{color:var(--muted);font-size:.9rem;margin-top:4px}
+  input[type=range]{width:100%;accent-color:var(--accent);min-height:2.25rem}
+  .slider-row{display:grid;gap:6px;margin-bottom:14px}
+  .slider-row label{font-weight:600;display:flex;justify-content:space-between;gap:10px;flex-wrap:wrap}
+  .slider-row output{font-family:"Barlow Condensed";font-size:1.2rem;color:var(--accent)}
+  table{width:100%;border-collapse:collapse;font-size:.95rem}
+  th,td{padding:9px 10px;border-bottom:1px solid var(--line);text-align:left;vertical-align:top}
+  th{font-family:"Barlow Semi Condensed";letter-spacing:.04em;text-transform:uppercase;font-size:.82rem;color:var(--muted)}
+  td.n,th.n{text-align:right;font-variant-numeric:tabular-nums;white-space:nowrap}
+  .rec{background:var(--gold-bg);border:1px solid var(--gold);border-radius:12px;padding:20px}
+  .rec h3{margin:0 0 6px;font-size:1.5rem;text-transform:uppercase}
+  .bigprice{font-family:"Barlow Condensed";font-size:clamp(2.2rem,6vw,3.4rem);font-weight:700;line-height:1}
+  /* ---------- Pitch draft ---------- */
+  .draft{background:var(--surface);border:1px solid var(--line);border-radius:12px;padding:22px;white-space:pre-wrap;font-size:.98rem}
+  .draft b{font-weight:700}
+  .actions{display:flex;gap:10px;flex-wrap:wrap;margin-top:14px}
+  .toast{position:fixed;left:50%;bottom:22px;transform:translateX(-50%) translateY(20px);background:var(--ink);color:var(--bg);padding:11px 18px;border-radius:10px;font-weight:600;opacity:0;pointer-events:none;transition:.25s;z-index:50;max-width:92vw;text-align:center}
+  .toast.show{opacity:1;transform:translateX(-50%) translateY(0)}
+  footer{padding:26px 0 44px;color:var(--muted);font-size:.9rem;border-top:1px solid var(--line);margin-top:10px}
+  .note{font-size:.88rem;color:var(--muted)}
+  ul.tight{margin:6px 0;padding-left:19px}
+  ul.tight li{margin:3px 0}
+
+  /* ============================================================
+     THE CONCEPT SITE — editorial rock-magazine / record-label
+     Paper, ink, one deep red. Serif display, small-caps kickers,
+     column rules. No gradients, no glow, no chrome.
+     ============================================================ */
+  .stage{
+    --paper:#f7f1e3; --paper2:#efe6d0; --ink2:#17130c; --inksoft:#4c4433;
+    --red:#9e1b12; --red-dk:#7c130c; --rule:#17130c; --hair:#c9bb9c;
+    background:var(--paper);color:var(--ink2);
+    font-family:"Libre Franklin",system-ui,sans-serif;
+    border-top:4px solid var(--ink2);border-bottom:4px solid var(--ink2);
+  }
+  .stage ::selection{background:var(--red);color:#fff}
+  .stage a{color:var(--red)}
+  .stage .pad{padding-left:clamp(18px,4.5vw,64px);padding-right:clamp(18px,4.5vw,64px)}
+  /* Masthead */
+  .mast{border-bottom:1px solid var(--rule);padding-top:14px;padding-bottom:12px}
+  .mast .dateline{display:flex;flex-wrap:wrap;gap:4px 18px;justify-content:space-between;font-size:.72rem;font-weight:700;letter-spacing:.16em;text-transform:uppercase;color:var(--inksoft);border-bottom:1px solid var(--hair);padding-bottom:8px;margin-bottom:10px}
+  .mastname{font-family:"Playfair Display",serif;font-weight:900;font-size:clamp(1.9rem,5.2vw,3.4rem);line-height:.95;letter-spacing:-.01em;text-align:center;margin:0}
+  .mastname em{font-style:italic;color:var(--red)}
+  .mast .tagline{text-align:center;font-size:.78rem;font-weight:700;letter-spacing:.22em;text-transform:uppercase;margin:8px 0 0;color:var(--inksoft)}
+  /* Site nav */
+  .snav{position:relative;z-index:5;border-bottom:3px double var(--rule);display:flex;flex-wrap:wrap;align-items:stretch;gap:0}
+  .snav nav{display:flex;flex-wrap:wrap;flex:1}
+  .snav nav a{color:var(--ink2);text-decoration:none;font-weight:700;font-size:.8rem;letter-spacing:.12em;text-transform:uppercase;padding:12px 13px;border-right:1px solid var(--hair);display:inline-flex;align-items:center}
+  .snav nav a:hover{background:var(--paper2)}
+  .snav nav a.on{background:var(--ink2);color:var(--paper)}
+  .snav .join{background:var(--red);color:#fff;text-decoration:none;font-weight:800;font-size:.8rem;letter-spacing:.12em;text-transform:uppercase;padding:12px 18px;display:inline-flex;align-items:center}
+  .snav .join:hover{background:var(--red-dk)}
+  .subnav{width:100%;border-top:1px solid var(--hair);display:flex;flex-wrap:wrap}
+  .subnav a{color:var(--inksoft);text-decoration:none;font-weight:600;font-size:.76rem;letter-spacing:.08em;text-transform:uppercase;padding:8px 13px;border-right:1px solid var(--hair)}
+  .subnav a:hover{background:var(--paper2);color:var(--ink2)}
+  /* Mobile site menu: one compact row + toggle (desktop untouched) */
+  .snav-toggle{display:none}
+  .snav-links{display:contents}
+  @media(max-width:860px){
+    .snav{display:block}
+    .snav-toggle{display:flex;align-items:center;justify-content:space-between;gap:12px;width:100%;background:transparent;border:0;padding:12px 0;min-height:3rem;cursor:pointer;font-family:"Libre Franklin",system-ui,sans-serif;font-weight:800;font-size:.84rem;letter-spacing:.16em;text-transform:uppercase;color:var(--ink2)}
+    .snav-toggle .tgl-icon{display:inline-flex;flex-direction:column;justify-content:center;gap:5px;flex:0 0 auto}
+    .snav-toggle .tgl-icon span{display:block;width:24px;height:2px;background:var(--ink2);transition:transform .2s ease,opacity .2s ease}
+    .snav.open .snav-toggle .tgl-icon span:nth-child(1){transform:translateY(7px) rotate(45deg)}
+    .snav.open .snav-toggle .tgl-icon span:nth-child(2){opacity:0}
+    .snav.open .snav-toggle .tgl-icon span:nth-child(3){transform:translateY(-7px) rotate(-45deg)}
+    .snav-links{display:none}
+    .snav.open .snav-links{display:flex;flex-direction:column;border-top:1px solid var(--hair);padding-bottom:10px}
+    .snav.open .snav-links nav{order:1;display:flex;flex-direction:column;flex:none}
+    .snav.open .snav-links nav a{border-right:0;border-bottom:1px solid var(--hair);width:100%;padding:13px 2px;font-size:.86rem}
+    .snav.open .snav-links .subnav{order:2;display:flex;flex-direction:column;width:100%;border-top:0}
+    .snav.open .snav-links .subnav a{border-right:0;border-bottom:1px solid var(--hair);width:100%;padding:11px 2px;font-size:.8rem}
+    .snav.open .snav-links .join{order:3;display:flex;width:100%;justify-content:center;padding:14px 18px;margin-top:10px}
+  }
+  @media (prefers-reduced-motion: reduce){.snav-toggle .tgl-icon span{transition:none}}
+  .spage{display:none}
+  .spage.on{display:block}
+  /* Type */
+  .kick{font-size:.74rem;font-weight:800;letter-spacing:.24em;text-transform:uppercase;color:var(--red)}
+  .kick.ink{color:var(--ink2)}
+  .stage h3.disp{font-family:"Playfair Display",serif;font-weight:900;line-height:1.02;margin:0}
+  .stage h4.disp{font-family:"Playfair Display",serif;font-weight:800;line-height:1.08;margin:0}
+  .dek{color:var(--inksoft);font-size:1.02rem;line-height:1.6}
+  .byline{font-size:.74rem;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--inksoft)}
+  .sbtn{display:inline-flex;align-items:center;justify-content:center;gap:8px;background:var(--ink2);color:var(--paper);text-decoration:none;font-weight:800;font-size:.82rem;letter-spacing:.12em;text-transform:uppercase;padding:13px 20px;min-height:2.75rem;border:1px solid var(--ink2);cursor:pointer;font-family:inherit}
+  .sbtn:hover{background:#000}
+  .sbtn.red{background:var(--red);border-color:var(--red);color:#fff}
+  .sbtn.red:hover{background:var(--red-dk)}
+  .sbtn.ghost{background:transparent;color:var(--ink2)}
+  .sbtn.ghost:hover{background:var(--paper2)}
+  .cta-row{display:flex;gap:10px;flex-wrap:wrap}
+  /* Hero */
+  .hero{padding-top:30px;padding-bottom:28px;border-bottom:1px solid var(--rule)}
+  .hero-grid{display:grid;gap:26px}
+  @media(min-width:900px){.hero-grid{grid-template-columns:1.65fr 1fr}}
+  .hero h3{font-size:clamp(2.4rem,6vw,4.3rem);letter-spacing:-.015em}
+  .hero h3 em{font-style:italic;color:var(--red)}
+  .hero .dek{max-width:36rem;margin:16px 0 20px;font-size:1.08rem}
+  .feature-box{border:2px solid var(--rule);background:var(--paper2);padding:20px;align-self:start}
+  .feature-box img{width:100%;height:auto;display:block;border:1px solid var(--rule);margin-bottom:14px}
+  .feature-box h4{font-size:1.5rem;margin:6px 0 6px}
+  .feature-box p{margin:0 0 14px;color:var(--inksoft);font-size:.95rem}
+  /* Credibility strip */
+  .cred{border-bottom:1px solid var(--rule);padding-top:14px;padding-bottom:14px;display:flex;flex-wrap:wrap;gap:8px 26px;align-items:baseline}
+  .cred .big{font-family:"Playfair Display",serif;font-weight:900;font-size:1.6rem}
+  .cred .names{font-size:.86rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--inksoft)}
+  .cred .names b{color:var(--red)}
+  /* Sections inside stage */
+  .ssec{padding-top:30px;padding-bottom:30px;border-bottom:1px solid var(--rule)}
+  .ssec:last-child{border-bottom:0}
+  .ssec-head{display:flex;flex-wrap:wrap;gap:6px 20px;align-items:baseline;justify-content:space-between;border-bottom:2px solid var(--rule);padding-bottom:8px;margin-bottom:20px}
+  .ssec-head h3{font-size:clamp(1.6rem,3.4vw,2.3rem)}
+  .ssec-head .more{font-size:.78rem;font-weight:800;letter-spacing:.14em;text-transform:uppercase;text-decoration:none}
+  /* Album-cover grid */
+  .covers{display:grid;gap:18px;grid-template-columns:repeat(2,1fr)}
+  @media(min-width:760px){.covers{grid-template-columns:repeat(3,1fr)}}
+  @media(min-width:1080px){.covers{grid-template-columns:repeat(4,1fr)}}
+  .cover{margin:0}
+  .cover .art{aspect-ratio:1/1;display:flex;flex-direction:column;justify-content:space-between;padding:14px;border:1px solid var(--rule);position:relative;overflow:hidden}
+  .cover .art .an{font-family:"Playfair Display",serif;font-weight:900;font-size:clamp(1.15rem,2vw,1.5rem);line-height:1.02;text-transform:uppercase}
+  .cover .art .at{font-size:.72rem;font-weight:800;letter-spacing:.18em;text-transform:uppercase}
+  .cover .art .no{font-family:"Playfair Display",serif;font-style:italic;font-size:.85rem}
+  .cover figcaption{padding-top:8px}
+  .cover figcaption .ca{font-weight:800;font-size:.92rem}
+  .cover figcaption .ct{color:var(--inksoft);font-size:.85rem;font-style:italic;font-family:"Playfair Display",serif}
+  .art.k1{background:var(--ink2);color:var(--paper)} .art.k1 .at{color:#e8b4ae}
+  .art.k2{background:var(--red);color:#fdf6ec} .art.k2 .at{color:#f3c1b8}
+  .art.k3{background:var(--paper2);color:var(--ink2)} .art.k3 .at{color:var(--red)}
+  .art.k4{background:#fdfaf1;color:var(--ink2);border-width:3px} .art.k4 .at{color:var(--red)}
+  .art.photo{padding:0;border:1px solid var(--rule)}
+  .art.photo img{width:100%;height:100%;object-fit:cover;display:block}
+  /* News / press list */
+  .news{display:grid;gap:0}
+  @media(min-width:860px){.news{grid-template-columns:1fr 1fr 1fr}.news article{padding:0 20px;border-left:1px solid var(--hair)}.news article:first-child{padding-left:0;border-left:0}.news article:last-child{padding-right:0}}
+  .news article{padding:16px 0;border-top:1px solid var(--hair)}
+  @media(min-width:860px){.news article{border-top:0;padding-top:0}}
+  .news .date{font-size:.72rem;font-weight:800;letter-spacing:.16em;text-transform:uppercase;color:var(--red)}
+  .news h4{font-size:1.28rem;margin:6px 0 6px}
+  .news h4 a{color:var(--ink2);text-decoration:none}
+  .news h4 a:hover{color:var(--red)}
+  .news p{margin:0;color:var(--inksoft);font-size:.92rem}
+  /* Two/three column editorial blocks */
+  .cols2{display:grid;gap:22px}
+  @media(min-width:860px){.cols2{grid-template-columns:1fr 1fr}.cols2.ruled>*+*{border-left:1px solid var(--hair);padding-left:22px}}
+  .cols3{display:grid;gap:22px}
+  @media(min-width:900px){.cols3{grid-template-columns:repeat(3,1fr)}.cols3.ruled>*+*{border-left:1px solid var(--hair);padding-left:22px}}
+  .showbox h4{font-size:1.45rem;margin:6px 0 8px}
+  .showbox p{margin:0 0 14px;color:var(--inksoft)}
+  /* Pull quote */
+  .pull{font-family:"Playfair Display",serif;font-style:italic;font-weight:700;font-size:clamp(1.35rem,3vw,1.9rem);line-height:1.3;margin:0}
+  .pull cite{display:block;margin-top:12px;font-family:"Libre Franklin";font-style:normal;font-size:.76rem;font-weight:800;letter-spacing:.16em;text-transform:uppercase;color:var(--red)}
+  /* Tier cards */
+  .tiers{display:grid;gap:16px}
+  @media(min-width:900px){.tiers{grid-template-columns:repeat(4,1fr)}.tiers.two{grid-template-columns:1fr 1fr}}
+  .tier{border:1px solid var(--rule);background:#fdfaf1;padding:20px;display:flex;flex-direction:column}
+  .tier.hot{border:3px solid var(--rule);background:var(--paper2)}
+  .tier .tname{font-family:"Playfair Display",serif;font-weight:900;font-size:1.3rem;text-transform:uppercase}
+  .tier .pos{font-style:italic;font-family:"Playfair Display",serif;color:var(--inksoft);font-size:.98rem;margin:4px 0 0}
+  .tier .price{font-family:"Playfair Display",serif;font-size:2.5rem;font-weight:900;margin:10px 0 2px;line-height:1}
+  .tier .price small{font-size:1rem;color:var(--inksoft);font-weight:700}
+  .tier ul{margin:12px 0 18px;padding:0;list-style:none;font-size:.92rem;color:var(--inksoft)}
+  .tier ul li{padding:7px 0;border-top:1px solid var(--hair)}
+  .tier ul li b{color:var(--ink2)}
+  .tier .sbtn{margin-top:auto}
+  .bestflag{display:inline-block;background:var(--red);color:#fff;font-size:.7rem;font-weight:800;letter-spacing:.16em;text-transform:uppercase;padding:3px 9px;margin-bottom:10px;align-self:flex-start}
+  /* Comparison matrix */
+  .cmpwrap{border:1px solid var(--rule);background:#fdfaf1}
+  table.cmp{width:100%;border-collapse:collapse;font-size:.9rem}
+  table.cmp th,table.cmp td{padding:10px 12px;border-bottom:1px solid var(--hair);text-align:left;vertical-align:top;color:var(--ink2)}
+  table.cmp thead th{background:var(--ink2);color:var(--paper);font-family:"Libre Franklin";text-transform:uppercase;letter-spacing:.08em;font-size:.78rem;border-bottom:2px solid var(--ink2)}
+  table.cmp td.c,table.cmp th.c{text-align:center}
+  table.cmp .yes{color:var(--red);font-weight:800}
+  table.cmp .no{color:#a4936f}
+  @media(max-width:640px){table.cmp{font-size:.74rem}table.cmp th,table.cmp td{padding:7px 6px}}
+  .coverlist{columns:1;gap:30px;margin:0;padding-left:19px;color:var(--inksoft)}
+  @media(min-width:760px){.coverlist{columns:2}}
+  .coverlist li{margin:0 0 9px;break-inside:avoid}
+  /* Steps */
+  .steps{display:grid;gap:22px}
+  @media(min-width:860px){.steps{grid-template-columns:repeat(3,1fr)}.steps>*+*{border-left:1px solid var(--hair);padding-left:22px}}
+  .step .n{font-family:"Playfair Display",serif;font-weight:900;font-style:italic;font-size:2.6rem;color:var(--red);line-height:1}
+  .step h4{font-size:1.3rem;margin:8px 0 6px}
+  .step p{margin:0;color:var(--inksoft);font-size:.94rem}
+  /* Episodes */
+  .epgrid{display:grid;gap:0;border:1px solid var(--rule);background:#fdfaf1}
+  @media(min-width:760px){.epgrid{grid-template-columns:1fr 1fr}}
+  @media(min-width:1080px){.epgrid{grid-template-columns:repeat(4,1fr)}}
+  .ep{padding:16px;border-bottom:1px solid var(--hair);display:flex;flex-direction:column}
+  @media(min-width:760px){.ep{border-right:1px solid var(--hair)}}
+  .ep .epn{font-family:"Playfair Display",serif;font-weight:900;font-size:2rem;line-height:1;color:var(--ink2)}
+  .ep .ept{font-weight:800;font-size:.95rem;margin-top:6px}
+  .ep p{color:var(--inksoft);font-size:.88rem;margin:5px 0 12px}
+  .ep .eplinks{margin-top:auto;display:flex;gap:8px;flex-wrap:wrap}
+  .ep .eplinks a{font-weight:800;font-size:.76rem;letter-spacing:.1em;text-transform:uppercase;text-decoration:none;border:1px solid var(--rule);padding:8px 12px;color:var(--ink2)}
+  .ep .eplinks a:first-child{background:var(--red);border-color:var(--red);color:#fff}
+  /* Forms */
+  .sform{display:grid;gap:13px;max-width:660px}
+  .sform label{font-weight:700;font-size:.82rem;letter-spacing:.06em;text-transform:uppercase;display:grid;gap:5px}
+  .sform input,.sform select,.sform textarea{background:#fdfaf1;border:1px solid var(--rule);color:var(--ink2);padding:11px 12px;font:inherit;font-size:1rem;text-transform:none;letter-spacing:0;min-height:2.75rem;width:100%}
+  .sform textarea{min-height:110px;resize:vertical}
+  .formok{display:none;background:#eef0dd;border:1px solid #6b7234;color:#39400f;padding:14px 16px;font-weight:600;font-size:.95rem}
+  .formok.show{display:block}
+  .contactgrid{display:grid;gap:22px}
+  @media(min-width:860px){.contactgrid{grid-template-columns:1.4fr 1fr}.contactgrid>*+*{border-left:1px solid var(--hair);padding-left:22px}}
+  .factbox h4{font-size:1.4rem;margin:0 0 10px}
+  .factbox p{margin:0 0 9px;color:var(--inksoft)}
+  .factbox a{font-weight:700}
+  /* Page head */
+  .phead{padding-top:30px;padding-bottom:22px;border-bottom:1px solid var(--rule)}
+  .phead h3{font-size:clamp(2rem,5vw,3.4rem);letter-spacing:-.01em}
+  .phead .dek{max-width:46rem;margin:12px 0 0}
+  /* Article (press release) */
+  .article{max-width:44rem}
+  .article p{color:var(--inksoft);line-height:1.75;margin:0 0 16px;font-size:1.02rem}
+  .article p b{color:var(--ink2)}
+  .article .dropcap::first-letter{font-family:"Playfair Display",serif;font-weight:900;font-size:3.2em;float:left;line-height:.82;padding:4px 10px 0 0;color:var(--red)}
+  /* Footer of concept site */
+  .sfoot{border-top:3px double var(--rule);padding-top:18px;padding-bottom:22px;display:grid;gap:14px}
+  @media(min-width:860px){.sfoot{grid-template-columns:1.2fr 2fr}}
+  .sfoot .fname{font-family:"Playfair Display",serif;font-weight:900;font-size:1.3rem}
+  .footnav{display:flex;gap:4px 16px;flex-wrap:wrap}
+  .footnav a{color:var(--inksoft);text-decoration:none;font-weight:700;font-size:.8rem;letter-spacing:.08em;text-transform:uppercase}
+  .footnav a:hover{color:var(--red)}
+  .sfoot p{margin:0;color:var(--inksoft);font-size:.86rem}
+  .roster-note{color:var(--inksoft);font-size:.95rem;margin-top:16px}
+  /* Video embeds — real YouTube uploads only */
+  .vid{position:relative;aspect-ratio:16/9;background:#14100a;border:1px solid var(--rule)}
+  .vid iframe{position:absolute;inset:0;width:100%;height:100%;border:0;display:block}
+  .vidplay{position:absolute;inset:0;width:100%;height:100%;background:transparent;border:0;cursor:pointer;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:9px;color:var(--paper);font-family:inherit;padding:10px}
+  .vidplay .tri{width:50px;height:50px;border-radius:50%;background:var(--red);color:#fff;display:flex;align-items:center;justify-content:center;font-size:1.15rem;padding-left:4px;flex:0 0 auto}
+  .vidplay:hover .tri{background:var(--red-dk)}
+  .vidplay .vl{font-size:.68rem;font-weight:800;letter-spacing:.16em;text-transform:uppercase;text-align:center}
+  .ep .vid{margin-bottom:12px}
+  .latest-ep{max-width:720px;margin-bottom:24px}
+  .latest-ep h4{font-size:1.5rem;margin:6px 0 10px}
+  /* Email chart capture */
+  .chartbox{border:2px solid var(--rule);background:var(--paper2);padding:22px;display:grid;gap:18px}
+  @media(min-width:860px){.chartbox{grid-template-columns:1fr 1.1fr;align-items:start}}
+  .chartbox h4{font-size:1.5rem;margin:6px 0 6px}
+  .chartbox p{margin:0;color:var(--inksoft);font-size:.95rem}
+  .chartform{display:grid;gap:11px}
+  @media(min-width:560px){.chartform{grid-template-columns:1fr 1fr}.chartform .sbtn{grid-column:1/-1}.chartform .formok{grid-column:1/-1}}
+  .chartform label{font-weight:700;font-size:.8rem;letter-spacing:.06em;text-transform:uppercase;display:grid;gap:5px}
+  .chartform input{background:#fdfaf1;border:1px solid var(--rule);color:var(--ink2);padding:11px 12px;font:inherit;font-size:1rem;text-transform:none;letter-spacing:0;min-height:2.75rem;width:100%}
+  /* FAQ, plain terms, testimonials placeholder */
+  .faq div{padding:14px 0;border-top:1px solid var(--hair)}
+  .faq div:first-child{border-top:0;padding-top:0}
+  .faq h4{font-size:1.18rem;margin:0 0 4px}
+  .faq p{margin:0;color:var(--inksoft);font-size:.95rem;max-width:46rem}
+  .terms{border:1px solid var(--rule);background:#fdfaf1;padding:20px;max-width:46rem}
+  .terms p{margin:0 0 10px;color:var(--inksoft)}
+  .terms p:last-child{margin-bottom:0}
+  .terms p b{color:var(--ink2)}
+  .testi-empty{border:2px dashed var(--hair);padding:26px;text-align:center;color:var(--inksoft);font-style:italic;font-family:"Playfair Display",serif;font-size:1.05rem}
+  /* PR upsell panel after a submission */
+  .upsell{display:none;border:2px solid var(--rule);background:var(--paper2);padding:20px;max-width:660px;margin-top:16px}
+  .upsell.show{display:block}
+  .upsell h4{font-size:1.4rem;margin:6px 0 6px}
+  .upsell p{margin:0 0 14px;color:var(--inksoft)}
+  /* Sticky Join / Submit bar — mobile only */
+  .stickybar{display:none}
+  @media(max-width:860px){
+    .stickybar{display:flex;position:fixed;left:0;right:0;bottom:0;z-index:40;background:var(--paper);border-top:3px double var(--rule);padding-bottom:env(safe-area-inset-bottom)}
+    .stickybar a{flex:1;text-align:center;text-decoration:none;font-weight:800;font-size:.82rem;letter-spacing:.12em;text-transform:uppercase;padding:15px 10px;color:var(--ink2);min-height:3rem;display:flex;align-items:center;justify-content:center}
+    .stickybar a.sb-red{background:var(--red);color:#fff}
+    body{padding-bottom:54px}
+    .toast{bottom:78px}
+  }
+  @media (prefers-reduced-motion: reduce){html{scroll-behavior:auto}}
+</style>
+</head>
+<body>
+
+<div class="pitchbar">
+  <div class="wrap">
+    <span><b>Fresh Marketing Solution</b> · Spec concept &amp; sales pitch — prepared for Nailah's review</span>
+    <span class="statuspill">⏸ NOT SENT — awaiting your approval on content &amp; timing</span>
+  </div>
+</div>
+
+<header class="pitch">
+  <div class="wrap">
+    <h1>Rock Raymond Productions<br><span>The Rebuild Pitch</span></h1>
+    <p class="lede">They run the world's first AI artist roster and an all-AI Top 40 radio station — and sell it all from one endless Squarespace page. Below: the redesigned site we'd sell them, rebuilt on research into Third Man Records, RadioAirplay, ReverbNation and Suno — an editorial, record-label design where the catalog is the hero. Then the audit that proves why they need it, the revenue math, and the exact pitch — held here until you approve it.</p>
+    <div class="meta-row">
+      <span class="chip">🎯 <b>Prospect:</b> Rock Raymond Productions Inc. · Tampa, FL</span>
+      <span class="chip">👤 <b>Founder:</b> Ray Shasho</span>
+      <span class="chip">✉️ <b>Contact on their site:</b> rockraymondproductions@gmail.com · 941-224-7891</span>
+      <span class="chip">🔎 <b>Site audited:</b> Nov 17, 2026</span>
+    </div>
+  </div>
+</header>
+
+<nav class="toc" aria-label="Sections">
+  <div class="wrap">
+    <a href="#concept">1 · The New Site</a>
+    <a href="#audit">2 · Why They Need It</a>
+    <a href="#money">3 · Revenue &amp; Our Price</a>
+    <a href="#crm">4 · The CRM Upsell</a>
+    <a href="#pitch">5 · The Pitch Draft</a>
+  </div>
+</nav>
+
+<!-- ============ 1 · FULL SITE BUILD ============ -->
+<section id="concept">
+  <div class="wrap">
+    <h2><span class="num">01</span> The new site — full build</h2>
+    <p class="sub">Rebuilt from the research file: Third Man Records' catalog-first homepage and club framing, RadioAirplay's comparison matrix and three-step submissions, ReverbNation's stacked tier cards, and a credibility strip built from Rock Raymond's own assets — 700+ interviews and the legends Ray has actually sat down with. Thirteen working pages inside the frame below; every link works, there are no placeholder routes, and the episode archive plays straight from Rock Raymond's real YouTube uploads.</p>
+  </div>
+
+  <div class="stage" aria-label="Rock Raymond Productions full website build — editorial concept">
+    <!-- Masthead -->
+    <div class="mast pad">
+      <div class="dateline"><span>Tampa, Florida</span><span>Est. on W AI-1 · May 12, 2026</span><span>Vol. I — The AI Music Issue</span></div>
+      <p class="mastname">Rock <em>Raymond</em> Productions</p>
+      <p class="tagline">The World's First AI Artist Roster · Capsha Records · W AI-1 Radio</p>
+    </div>
+    <div class="snav pad">
+      <button class="snav-toggle" type="button" aria-expanded="false" aria-controls="snavLinks"><span class="tgl-text">Menu</span><span class="tgl-icon" aria-hidden="true"><span></span><span></span><span></span></span></button>
+      <div class="snav-links" id="snavLinks">
+      <nav aria-label="Rock Raymond Productions site">
+        <a href="#concept" data-goto="home" class="on">Home</a><a href="#concept" data-goto="radio">Radio</a><a href="#concept" data-goto="artists">Artists</a><a href="#concept" data-goto="kylie">Kylie Willow</a><a href="#concept" data-goto="memberships">Membership</a><a href="#concept" data-goto="pr">PR &amp; Media</a><a href="#concept" data-goto="legends">Podcast</a><a href="#concept" data-goto="press">Press</a><a href="#concept" data-goto="about">About</a><a href="#concept" data-goto="contact">Contact</a>
+      </nav>
+      <a class="join" href="#concept" data-goto="submit">Submit Your Track</a>
+      <div class="subnav">
+        <a href="#concept" data-goto="radio" data-anchor="casey">The Casey Kountdown</a><a href="#concept" data-goto="explained">AI Music Explained</a><a href="#concept" data-goto="books">Books by Ray Shasho</a><a href="#concept" data-goto="legends" data-anchor="backstage">Backstage Access</a><a href="#concept" data-goto="about" data-anchor="sponsors">Sponsors</a><a href="#concept" data-goto="kylie" data-anchor="capsha">Capsha Records</a>
+      </div>
+      </div>
+    </div>
+
+    <!-- ===== PAGE: HOME ===== -->
+    <div class="spage on" data-page="home">
+      <div class="hero pad">
+        <div class="hero-grid">
+          <div>
+            <p class="kick">W AI-1 · AI Top 40 Radio · Now Broadcasting</p>
+            <h3 class="disp">Your Gateway to the World's First <em>AI Artist Roster</em></h3>
+            <p class="dek">Pop, rock, hip-hop, country, EDM, Latin and jazz — performed by the most innovative virtual artists on the planet, counted down weekly on one dial. This is the catalog. Everything else is liner notes.</p>
+            <div class="cta-row">
+              <a class="sbtn red" href="#concept" data-goto="memberships">Join the Club — Get Airplay</a>
+              <a class="sbtn ghost" href="#concept" data-goto="radio">The Episode Archive</a>
+            </div>
+          </div>
+          <aside class="feature-box">
+            <p class="kick">Featured This Week · Artist Spotlight</p>
+            <img src="assets/media-generation-hero-radio-0-63b452e9-6afb-45cd-9c8a-71ebbfe68490.webp" alt="Illustration of a vintage-meets-future radio studio with an ON AIR sign and virtual performers on screens" />
+            <h4 class="disp">Frog Squire</h4>
+            <p>The roster's newest spotlight act, leading this season's feature promo rotation on AI Top 40 Radio — hear the feature on this week's episode.</p>
+            <a class="sbtn" href="#concept" data-goto="artists">Meet the Roster</a>
+          </aside>
+        </div>
+      </div>
+
+      <div class="cred pad" aria-label="Track record">
+        <span class="big">700+ interviews with legends</span>
+        <span class="names">Ray Shasho has sat down with <b>Ann Wilson</b> · <b>Ian Anderson</b> · <b>Jon Anderson</b> · <b>Mark Farner</b> — and 700 more on <i>Interviewing the Legends</i></span>
+        <span class="names"><a href="https://www.youtube.com/channel/UCfAXkyD5vxFXypN4ZqcF-kQ" target="_blank" rel="noopener" style="font-weight:800">Interviewing the Legends on YouTube — 17.8K subscribers · 4.35M views →</a></span>
+      </div>
+
+      <div class="ssec pad">
+        <div class="ssec-head"><h3 class="disp">Latest Releases &amp; The Roster</h3><a class="more" href="#concept" data-goto="artists">Full roster →</a></div>
+        <div class="covers">
+          <figure class="cover"><div class="art photo"><img src="assets/media-generation-kylie-willow-0-b92ccc01-7d6f-4b84-87fb-654db6fc0a13.webp" alt="Illustration of flagship AI artist Kylie Willow performing on stage with a vintage microphone" /></div><figcaption><span class="ca">Kylie Willow</span><br><span class="ct">Unfiltered Flame — Capsha Records</span><br><a href="#concept" data-goto="kylie" style="font-weight:800;font-size:.82rem;letter-spacing:.08em;text-transform:uppercase">Spotlight page →</a></figcaption></figure>
+          <figure class="cover"><div class="art k2"><span class="at">Featured · W AI-1</span><span class="an">Frog Squire</span><span class="no">This week's feature promo</span></div><figcaption><span class="ca">Frog Squire</span><br><span class="ct">Featured single — in rotation now</span></figcaption></figure>
+          <figure class="cover"><div class="art k1"><span class="at">Capsha Records</span><span class="an">Kylie Willow</span><span class="no">Willow Rising</span></div><figcaption><span class="ca">Kylie Willow</span><br><span class="ct">Willow Rising</span></figcaption></figure>
+          <figure class="cover"><div class="art k3"><span class="at">Spotlight Artist</span><span class="an">Yuna Noir</span><span class="no">On the countdown</span></div><figcaption><span class="ca">Yuna Noir</span><br><span class="ct">Spotlighted on AI Top 40 Radio</span></figcaption></figure>
+          <figure class="cover"><div class="art k4"><span class="at">Spotlight Artist</span><span class="an">Chase Vance</span><span class="no">On the countdown</span></div><figcaption><span class="ca">Chase Vance</span><br><span class="ct">Spotlighted on The Casey Kountdown</span></figcaption></figure>
+          <figure class="cover"><div class="art k2"><span class="at">Spotlight Artist</span><span class="an">Pelican Pill</span><span class="no">On the countdown</span></div><figcaption><span class="ca">Pelican Pill</span><br><span class="ct">Spotlighted on AI Top 40 Radio</span></figcaption></figure>
+          <figure class="cover"><div class="art k1"><span class="at">Spotlight Artist</span><span class="an">Silas Blue</span><span class="no">On the countdown</span></div><figcaption><span class="ca">Silas Blue</span><br><span class="ct">Spotlighted on The Casey Kountdown</span></figcaption></figure>
+          <figure class="cover"><div class="art k3"><span class="at">Coming Soon</span><span class="an">Kylie Willow</span><span class="no">Album No. 5 — a tribute to the '60s</span></div><figcaption><span class="ca">Kylie Willow</span><br><span class="ct">The fifth album — a tribute to the music of the '60s</span></figcaption></figure>
+        </div>
+      </div>
+
+      <div class="ssec pad">
+        <div class="ssec-head"><h3 class="disp">On the Air</h3><a class="more" href="#concept" data-goto="radio">All 16 episodes →</a></div>
+        <div class="latest-ep">
+          <p class="kick">Latest Episode · No. 16 · Play It Here</p>
+          <h4 class="disp">AI TOP40 Radio W AI 1 — Episode 16</h4>
+          <div class="vid"><iframe src="https://www.youtube.com/embed/G2msK4NsL3A" title="AI TOP40 Radio W AI 1 — Episode 16" loading="lazy" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe></div>
+        </div>
+        <div class="cols2 ruled">
+          <div class="showbox">
+            <p class="kick">W AI-1 · Music Radio</p>
+            <h4 class="disp">AI Top 40 Radio</h4>
+            <p>The world's first all-AI Top 40 format — launched May 12, 2026, streaming globally, hosted by Ray Ray the Deejay with co-host Signal Sage. Hundreds of new tracks arrive every week; every episode is hand-curated and sequenced. Sixteen episodes in the archive and counting.</p>
+            <a class="sbtn red" href="#concept" data-goto="radio">Episode Archive — 16 Shows</a>
+          </div>
+          <div class="showbox">
+            <p class="kick">The Countdown Show</p>
+            <h4 class="disp">The Casey Kountdown</h4>
+            <p>The AI Top 40 countdown show. Club members at Tier 2 and up get guaranteed placement in the countdown rotation, plus playlist rotation and worldwide podcast distribution through Interviewing the Legends.</p>
+            <a class="sbtn ghost" href="#concept" data-goto="radio" data-anchor="casey">About the Countdown</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="ssec pad">
+        <div class="ssec-head"><h3 class="disp">The Airplay Club</h3><a class="more" href="#concept" data-goto="memberships">Compare all four packages →</a></div>
+        <p class="dek" style="max-width:46rem;margin:0 0 18px">Membership is a club, not a checkout page. Four numbered packages, each one stacking on the last — guaranteed airplay from Package No. 1, and the annual package reserved for artists who want every benefit, all year.</p>
+        <div class="tiers">
+          <article class="tier"><span class="tname">Package No. 1</span><p class="pos">Get heard — guaranteed airplay, every episode.</p><div class="price">$20<small>/mo</small></div><ul><li><b>Guaranteed airplay</b> on every AI Top 40 episode</li></ul><a class="sbtn ghost" href="#concept" data-goto="memberships">Package No. 1</a></article>
+          <article class="tier hot"><span class="bestflag">Most Joined</span><span class="tname">Package No. 2</span><p class="pos">Get counted down — and distributed worldwide.</p><div class="price">$40<small>/mo</small></div><ul><li>Everything in No. 1, <b>plus</b> Casey Kountdown placement, playlist rotation &amp; podcast distribution</li></ul><a class="sbtn red" href="#concept" data-goto="memberships">Package No. 2</a></article>
+          <article class="tier"><span class="tname">Package No. 3</span><p class="pos">Get the full treatment — artwork, profile, promotion.</p><div class="price">$60<small>/mo</small></div><ul><li>Everything in No. 2, <b>plus</b> custom artwork via Hype Mechanics PR and a hosted, promoted artist profile</li></ul><a class="sbtn ghost" href="#concept" data-goto="memberships">Package No. 3</a></article>
+          <article class="tier"><span class="tname">Package No. 4 · Annual</span><p class="pos">The full year — every benefit, every episode.</p><div class="price">$170<small>/yr</small></div><ul><li>All packages' benefits, multiple submissions, profile features &amp; on-air mentions all year</li></ul><a class="sbtn ghost" href="#concept" data-goto="memberships">Package No. 4</a></article>
+        </div>
+      </div>
+
+      <div class="ssec pad">
+        <div class="ssec-head"><h3 class="disp">News &amp; Press</h3><a class="more" href="#concept" data-goto="press">The press page →</a></div>
+        <div class="news">
+          <article><p class="date">May 31, 2026 · EIN Presswire</p><h4 class="disp"><a href="#concept" data-goto="press">Rock Raymond Productions Inc. Launches the World's First Full-Spectrum AI Music Powerhouse</a></h4><p>The full launch release, from Tampa — the roster, the radio, and the label, announced as one ecosystem.</p></article>
+          <article><p class="date">This Season · Capsha Records</p><h4 class="disp"><a href="#concept" data-goto="kylie" data-anchor="capsha">New Album Promos and the Best Debut Album Award</a></h4><p>Capsha Records rolls out new album promos all season, and honors the roster's strongest first release.</p></article>
+          <article><p class="date">On the Podcast</p><h4 class="disp"><a href="#concept" data-goto="legends">Kylie Willow: “I write songs for the people who feel invisible”</a></h4><p>The flagship artist, in her own words, from Interviewing the Legends — plus Backstage Access for fans of the show.</p></article>
+        </div>
+      </div>
+
+      <div class="ssec pad">
+        <div class="chartbox">
+          <div>
+            <p class="kick">Not Joining Today?</p>
+            <h4 class="disp">Get the weekly AI Top 40 chart by email</h4>
+            <p>The week's countdown, new roster releases and submission news — in your inbox every week, free.</p>
+          </div>
+          <form class="chartform" id="chartFormHome">
+            <label>Your name<input required name="name" placeholder="Your name"></label>
+            <label>Email<input required type="email" name="email" placeholder="you@example.com"></label>
+            <button class="sbtn red" type="submit">Send Me the Chart</button>
+            <div class="formok" id="chartOkHome">You're on the list — the next weekly chart lands in your inbox. In the live build this feeds the same Rock Raymond CRM as memberships and submissions.</div>
+          </form>
+        </div>
+      </div>
+
+      <div class="ssec pad">
+        <blockquote class="pull">“I write songs for the people who feel invisible — the ones still waiting for someone to say, I see you, I hear you, and you matter.”<cite>— Kylie Willow, on Interviewing the Legends · <a href="#concept" data-goto="press">More press →</a></cite></blockquote>
+        <p style="margin:20px 0 0;color:var(--inksoft);font-size:.92rem">Official sponsor: <a href="https://publicityrocks.press" target="_blank" rel="noopener" style="font-weight:800">Hype Mechanics PR and Media</a> · <a href="#concept" data-goto="about" data-anchor="sponsors" style="font-weight:700">Sponsors →</a></p>
+      </div>
+    </div><!-- /home -->
+
+    <!-- ===== PAGE: RADIO ===== -->
+    <div class="spage" data-page="radio">
+      <div class="phead pad">
+        <p class="kick">W AI-1 · Music Radio</p>
+        <h3 class="disp">AI Top 40 Radio</h3>
+        <p class="dek">The world's first all-AI Top 40 radio station — launched May 12, 2026 and streaming globally. A weekly countdown of the most innovative virtual performers on the planet, hosted by <b>Ray Ray the Deejay</b> with co-host <b>Signal Sage</b>. Hundreds of new tracks arrive every week; every episode is hand-curated and sequenced.</p>
+        <div class="cta-row" style="margin-top:18px">
+          <a class="sbtn red" href="https://www.rockraymondproductionsinc.com/" target="_blank" rel="noopener">▶ Listen Live</a>
+          <a class="sbtn ghost" href="https://www.rockraymondproductionsinc.com/" target="_blank" rel="noopener">Watch Episodes</a>
+          <a class="sbtn ghost" href="#concept" data-goto="submit">Submit Your Track</a>
+        </div>
+      </div>
+      <div class="ssec pad">
+        <div class="ssec-head"><h3 class="disp">Episode Archive</h3><span class="byline">16 episodes · Updated weekly</span></div>
+        <p class="dek" style="max-width:44rem;margin:0 0 18px">Every countdown episode, numbered like the chart it counts down. Episodes with a published video play right here, straight from the show's YouTube uploads; the rest link out to the live station.</p>
+        <div class="epgrid" id="epGrid"></div>
+      </div>
+      <div class="ssec pad" id="casey">
+        <p class="kick">The Countdown Show</p>
+        <h3 class="disp" style="font-size:clamp(1.7rem,3.6vw,2.4rem);margin:8px 0 10px">The Casey Kountdown</h3>
+        <p class="dek" style="max-width:46rem">The AI Top 40 countdown show — the week's biggest AI tracks counted down in one flagship broadcast. Club members at Package No. 2 and up get <b>guaranteed placement</b> in the Casey Kountdown rotation, on top of their AI Top 40 airplay, with worldwide podcast streaming and distribution through Interviewing the Legends.</p>
+        <div class="cta-row" style="margin-top:16px">
+          <a class="sbtn red" href="#concept" data-goto="memberships">Get Countdown Placement — No. 2</a>
+          <a class="sbtn ghost" href="https://www.rockraymondproductionsinc.com/" target="_blank" rel="noopener">Hear the Latest Countdown</a>
+        </div>
+      </div>
+    </div><!-- /radio -->
+
+    <!-- ===== PAGE: ARTISTS ===== -->
+    <div class="spage" data-page="artists">
+      <div class="phead pad">
+        <p class="kick">The Roster · Capsha Records</p>
+        <h3 class="disp">Artists</h3>
+        <p class="dek">The full stable of Rock Raymond AI artists — boundary-pushing creativity across pop, rock, hip-hop, country, EDM, Latin and jazz. Spotlighted acts pushing the boundary of what an artist can be, each with its own sound, story and catalog. Package No. 3 members get their profile and tracks hosted, showcased and promoted right here.</p>
+      </div>
+      <div class="ssec pad">
+        <div class="covers">
+          <figure class="cover"><div class="art photo"><img src="assets/media-generation-kylie-willow-0-b92ccc01-7d6f-4b84-87fb-654db6fc0a13.webp" alt="Illustration of flagship AI artist Kylie Willow performing on stage with a vintage microphone" /></div><figcaption><span class="ca">Kylie Willow</span><br><span class="ct">Flagship artist — five albums deep</span><br><a href="#concept" data-goto="kylie" style="font-weight:800;font-size:.82rem;letter-spacing:.08em;text-transform:uppercase">Spotlight →</a></figcaption></figure>
+          <figure class="cover"><div class="art k2"><span class="at">Featured Spotlight</span><span class="an">Frog Squire</span><span class="no">This season's feature</span></div><figcaption><span class="ca">Frog Squire</span><br><span class="ct">This season's featured spotlight act, leading the promo rotation on AI Top 40 Radio — boundary-pushing creativity with a sound all its own.</span></figcaption></figure>
+          <figure class="cover"><div class="art k3"><span class="at">Spotlight Artist</span><span class="an">Yuna Noir</span><span class="no">On the countdown</span></div><figcaption><span class="ca">Yuna Noir</span><br><span class="ct">Spotlighted on AI Top 40 Radio and The Casey Kountdown — one of the roster's boundary-pushing voices.</span></figcaption></figure>
+          <figure class="cover"><div class="art k1"><span class="at">Spotlight Artist</span><span class="an">Chase Vance</span><span class="no">On the countdown</span></div><figcaption><span class="ca">Chase Vance</span><br><span class="ct">Spotlighted on AI Top 40 Radio and The Casey Kountdown — one of the roster's boundary-pushing voices.</span></figcaption></figure>
+          <figure class="cover"><div class="art k4"><span class="at">Spotlight Artist</span><span class="an">Pelican Pill</span><span class="no">On the countdown</span></div><figcaption><span class="ca">Pelican Pill</span><br><span class="ct">Spotlighted on AI Top 40 Radio and The Casey Kountdown — one of the roster's boundary-pushing voices.</span></figcaption></figure>
+          <figure class="cover"><div class="art k2"><span class="at">Spotlight Artist</span><span class="an">Silas Blue</span><span class="no">On the countdown</span></div><figcaption><span class="ca">Silas Blue</span><br><span class="ct">Spotlighted on AI Top 40 Radio and The Casey Kountdown — one of the roster's boundary-pushing voices.</span></figcaption></figure>
+        </div>
+        <p class="roster-note">…and a growing stable of spotlighted acts across every genre — the roster expands with every episode. Want your act on this page? <a href="#concept" data-goto="memberships" style="font-weight:800">Package No. 3 hosts and promotes member profiles →</a></p>
+      </div>
+    </div><!-- /artists -->
+
+    <!-- ===== PAGE: KYLIE WILLOW ===== -->
+    <div class="spage" data-page="kylie">
+      <div class="phead pad">
+        <p class="kick">Artist Spotlight · Capsha Records</p>
+        <h3 class="disp">Kylie Willow</h3>
+        <p class="dek">The flagship artist of the world's first AI artist roster — five albums deep, with a voice for the people who feel invisible.</p>
+      </div>
+      <div class="ssec pad">
+        <div class="cols2">
+          <div><div class="art photo" style="aspect-ratio:1/1"><img src="assets/media-generation-kylie-willow-0-b92ccc01-7d6f-4b84-87fb-654db6fc0a13.webp" alt="Illustration of flagship AI artist Kylie Willow performing on stage with a vintage microphone" style="width:100%;height:100%;object-fit:cover;display:block" /></div></div>
+          <div>
+            <blockquote class="pull">“I write songs for the people who feel invisible — the ones still waiting for someone to say, I see you, I hear you, and you matter.”<cite>— Kylie Willow</cite></blockquote>
+            <p class="dek" style="margin:18px 0">Kylie Willow headlines the Rock Raymond roster on Capsha Records — a full discography, a debut honored with the Best Debut Album Award, and a fifth album paying tribute to the music of the '60s.</p>
+            <div class="cta-row">
+              <a class="sbtn red" href="https://kyliewillowofficialsite.com" target="_blank" rel="noopener">kyliewillowofficialsite.com</a>
+              <a class="sbtn ghost" href="#concept" data-goto="radio">Hear Her on W AI-1</a>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="ssec pad">
+        <div class="ssec-head"><h3 class="disp">Discography</h3><span class="byline">Four albums out · A fifth on the way</span></div>
+        <div class="covers">
+          <figure class="cover"><div class="art k2"><span class="at">Album · In Rotation</span><span class="an">Unfiltered Flame</span><span class="no">Kylie Willow</span></div><figcaption><span class="ca">Unfiltered Flame</span><br><span class="ct">The current spotlight release, in rotation now on AI Top 40 Radio.</span><br><a href="https://www.qobuz.com/us-en/album/unfiltered-flame-kylie-willow/susmx57rsjtob" target="_blank" rel="noopener" style="font-weight:800;font-size:.82rem;letter-spacing:.08em;text-transform:uppercase">Listen on Qobuz →</a></figcaption></figure>
+          <figure class="cover"><div class="art k1"><span class="at">Album</span><span class="an">Willow Rising</span><span class="no">Kylie Willow</span></div><figcaption><span class="ca">Willow Rising</span><br><span class="ct">Part of the five-album run that made Kylie the roster's flagship voice.</span><br><a href="https://kyliewillowofficialsite.com" target="_blank" rel="noopener" style="font-weight:800;font-size:.82rem;letter-spacing:.08em;text-transform:uppercase">Buy / Stream →</a></figcaption></figure>
+          <figure class="cover"><div class="art k3"><span class="at">Album · Unfiltered II</span><span class="an">Fireproof Heart</span><span class="no">Kylie Willow</span></div><figcaption><span class="ca">Fireproof Heart (Unfiltered II)</span><br><span class="ct">The second chapter of the Unfiltered series.</span><br><a href="https://kyliewillowofficialsite.com" target="_blank" rel="noopener" style="font-weight:800;font-size:.82rem;letter-spacing:.08em;text-transform:uppercase">Buy / Stream →</a></figcaption></figure>
+          <figure class="cover"><div class="art k4"><span class="at">Album</span><span class="an">Too Good To Be Real</span><span class="no">Kylie Willow</span></div><figcaption><span class="ca">Too Good To Be Real</span><br><span class="ct">Singles from this album rotate on W AI-1 and The Casey Kountdown.</span><br><a href="https://kyliewillowofficialsite.com" target="_blank" rel="noopener" style="font-weight:800;font-size:.82rem;letter-spacing:.08em;text-transform:uppercase">Buy / Stream →</a></figcaption></figure>
+          <figure class="cover"><div class="art k1"><span class="at">Album No. 5 · Coming</span><span class="an">A Tribute to the '60s</span><span class="no">Kylie Willow</span></div><figcaption><span class="ca">The Fifth Album</span><br><span class="ct">A tribute to the music of the 1960s, reimagined by the roster's flagship voice.</span><br><a href="https://kyliewillowofficialsite.com" target="_blank" rel="noopener" style="font-weight:800;font-size:.82rem;letter-spacing:.08em;text-transform:uppercase">Follow the Release →</a></figcaption></figure>
+        </div>
+      </div>
+      <div class="ssec pad" id="capsha">
+        <p class="kick">The Label</p>
+        <h3 class="disp" style="font-size:clamp(1.7rem,3.6vw,2.4rem);margin:8px 0 10px">Capsha Records</h3>
+        <p class="dek" style="max-width:46rem">Capsha Records is the label home of the Rock Raymond roster — new album promos all season long, led by Kylie Willow's catalog. The label is home to the <b>Best Debut Album Award</b>, honoring the strongest first release on the roster.</p>
+        <div class="cta-row" style="margin-top:16px">
+          <a class="sbtn ghost" href="#concept" data-goto="artists">Meet the Capsha Roster</a>
+          <a class="sbtn ghost" href="#concept" data-goto="submit">Submit to Capsha</a>
+        </div>
+      </div>
+    </div><!-- /kylie -->
+
+    <!-- ===== PAGE: MEMBERSHIPS ===== -->
+    <div class="spage" data-page="memberships">
+      <div class="phead pad">
+        <p class="kick">The Airplay Club · Membership</p>
+        <h3 class="disp">Four Packages. One Promise: Your Music Gets Heard.</h3>
+        <p class="dek">Every package is built on guaranteed airplay — pick the level of placement, promotion and production you want. Each package includes everything in the one below it, plus more. The annual package is the club's best value: every benefit, all year, one payment.</p>
+      </div>
+      <div class="ssec pad">
+        <div class="tiers">
+          <article class="tier"><span class="tname">Tier 1 · No. 1</span><p class="pos">Get heard — guaranteed airplay on every episode.</p><div class="price">$20<small>/mo</small></div>
+            <ul><li><b>Guaranteed airplay</b> on every AI Top 40 (W AI-1) episode</li><li>Regular exposure to grow your audience</li></ul>
+            <a class="sbtn ghost" href="#concept" data-goto="submit">Join Tier 1</a></article>
+          <article class="tier hot"><span class="bestflag">Most Joined</span><span class="tname">Tier 2 · No. 2</span><p class="pos">Get counted down — and heard worldwide.</p><div class="price">$40<small>/mo</small></div>
+            <ul><li><b>Everything in Tier 1, plus:</b></li><li>Guaranteed Casey Kountdown placement</li><li>Playlist rotation</li><li>Worldwide podcast streaming &amp; distribution on the Interviewing the Legends podcast</li></ul>
+            <a class="sbtn red" href="#concept" data-goto="submit">Join Tier 2</a></article>
+          <article class="tier"><span class="tname">Tier 3 · No. 3</span><p class="pos">Get the full treatment — artwork, profile, promotion.</p><div class="price">$60<small>/mo</small></div>
+            <ul><li><b>Everything in Tiers 1 &amp; 2, plus:</b></li><li>Custom single &amp; album artwork through Hype Mechanics PR</li><li>Artist profile &amp; tracks hosted, showcased and promoted on the website</li></ul>
+            <a class="sbtn ghost" href="#concept" data-goto="submit">Join Tier 3</a></article>
+          <article class="tier hot"><span class="bestflag">Best Value · Annual</span><span class="tname">Tier 4 · No. 4</span><p class="pos">The full year — every benefit, every episode.</p><div class="price">$170<small>/yr</small></div>
+            <ul><li><b>Everything in Tiers 1–3, plus:</b></li><li>Submit multiple tracks all year</li><li>Ongoing artist profile features</li><li>Producer/creator mentions on every episode</li><li>One upfront payment — the club's best value</li></ul>
+            <a class="sbtn red" href="#concept" data-goto="submit">Go Annual</a></article>
+        </div>
+      </div>
+      <div class="ssec pad">
+        <div class="ssec-head"><h3 class="disp">Compare the Packages</h3><span class="byline">Every benefit, side by side</span></div>
+        <div class="cmpwrap"><table class="cmp">
+          <thead><tr><th>Benefit</th><th class="c">Tier 1 · $20/mo</th><th class="c">Tier 2 · $40/mo</th><th class="c">Tier 3 · $60/mo</th><th class="c">Tier 4 · $170/yr</th></tr></thead>
+          <tbody>
+          <tr><td>Guaranteed airplay on every AI Top 40 episode</td><td class="c yes">✓</td><td class="c yes">✓</td><td class="c yes">✓</td><td class="c yes">✓</td></tr>
+          <tr><td>Guaranteed Casey Kountdown placement</td><td class="c no">—</td><td class="c yes">✓</td><td class="c yes">✓</td><td class="c yes">✓</td></tr>
+          <tr><td>Playlist rotation</td><td class="c no">—</td><td class="c yes">✓</td><td class="c yes">✓</td><td class="c yes">✓</td></tr>
+          <tr><td>Worldwide podcast streaming &amp; distribution (Interviewing the Legends)</td><td class="c no">—</td><td class="c yes">✓</td><td class="c yes">✓</td><td class="c yes">✓</td></tr>
+          <tr><td>Custom single &amp; album artwork (Hype Mechanics PR)</td><td class="c no">—</td><td class="c no">—</td><td class="c yes">✓</td><td class="c yes">✓</td></tr>
+          <tr><td>Artist profile &amp; tracks hosted, showcased &amp; promoted</td><td class="c no">—</td><td class="c no">—</td><td class="c yes">✓</td><td class="c yes">✓</td></tr>
+          <tr><td>Multiple track submissions</td><td class="c no">—</td><td class="c no">—</td><td class="c no">—</td><td class="c yes">✓</td></tr>
+          <tr><td>Ongoing profile features &amp; producer/creator mentions on every episode</td><td class="c no">—</td><td class="c no">—</td><td class="c no">—</td><td class="c yes">✓</td></tr>
+          </tbody>
+        </table></div>
+      </div>
+      <div class="ssec pad">
+        <div class="ssec-head"><h3 class="disp">What Your Membership Covers</h3></div>
+        <p class="dek" style="margin:0 0 16px">Every dollar goes into the work that gets AI music heard:</p>
+        <ul class="coverlist">
+          <li>Reviewing hundreds of submissions</li>
+          <li>Curating and sequencing episodes</li>
+          <li>Hosting, editing and production</li>
+          <li>Maintaining the website</li>
+          <li>Playlist and artist features</li>
+          <li>Expanding the reach of AI music worldwide</li>
+        </ul>
+        <div class="cta-row" style="margin-top:20px"><a class="sbtn red" href="#concept" data-goto="submit">Join &amp; Submit Your Track</a></div>
+      </div>
+      <div class="ssec pad">
+        <div class="ssec-head"><h3 class="disp">Questions, Answered</h3><span class="byline">Straight from how the club runs</span></div>
+        <div class="faq">
+          <div><h4 class="disp">How do submissions work?</h4><p>Submissions are members-only. Members send their tracks through the submission form on this site — not by email — so every track enters the review pipeline.</p></div>
+          <div><h4 class="disp">How many tracks arrive?</h4><p>Hundreds of new tracks arrive every week. Every submission is reviewed, and review time depends on volume.</p></div>
+          <div><h4 class="disp">When does the show air?</h4><p>A new episode of AI Top 40 Radio lands every week, curated and sequenced from the week's submissions.</p></div>
+          <div><h4 class="disp">What does membership cover?</h4><p>The work behind the show: reviewing submissions, curating and sequencing episodes, production, the website and the playlist.</p></div>
+          <div><h4 class="disp">How do I cancel?</h4><p>Anytime. Your membership stays active through the end of the period you've paid for, and cancelling stops future charges.</p></div>
+        </div>
+      </div>
+      <div class="ssec pad">
+        <div class="ssec-head"><h3 class="disp">The Terms, Plainly</h3></div>
+        <div class="terms">
+          <p><b>Monthly packages (No. 1, No. 2 and No. 3)</b> bill monthly. You can cancel anytime — your membership stays active through the end of the paid period, and cancelling stops future charges.</p>
+          <p><b>The annual package (No. 4)</b> is one charge per year.</p>
+          <p><b>Airplay and placement benefits</b> — episode airplay, countdown placement, playlist rotation, distribution, artwork and profile features — apply while your membership is active.</p>
+        </div>
+      </div>
+      <div class="ssec pad">
+        <div class="ssec-head"><h3 class="disp">What Members Say</h3></div>
+        <div class="testi-empty">This space is reserved for real words from Rock Raymond members — their quotes will appear here as they're collected.</div>
+      </div>
+      <div class="ssec pad">
+        <div class="chartbox">
+          <div>
+            <p class="kick">Not Joining Today?</p>
+            <h4 class="disp">Get the weekly AI Top 40 chart by email</h4>
+            <p>The week's countdown, new roster releases and submission news — in your inbox every week, free.</p>
+          </div>
+          <form class="chartform" id="chartFormMember">
+            <label>Your name<input required name="name" placeholder="Your name"></label>
+            <label>Email<input required type="email" name="email" placeholder="you@example.com"></label>
+            <button class="sbtn red" type="submit">Send Me the Chart</button>
+            <div class="formok" id="chartOkMember">You're on the list — the next weekly chart lands in your inbox. In the live build this feeds the same Rock Raymond CRM as memberships and submissions.</div>
+          </form>
+        </div>
+      </div>
+      <div class="ssec pad">
+        <div class="cols2">
+          <div class="showbox">
+            <p class="kick">Go Further · Hype Mechanics PR</p>
+            <h4 class="disp">Airplay gets you heard. PR gets you covered.</h4>
+            <p>Ray's own publicity company, Hype Mechanics PR &amp; Media, runs campaigns behind releases — interviews, press and full launches, with packages from $450.</p>
+            <a class="sbtn red" href="#concept" data-goto="pr">See Hype Mechanics PR Packages</a>
+          </div>
+          <div class="showbox">
+            <p class="kick">Ready When You Are</p>
+            <h4 class="disp">Join &amp; submit in one step</h4>
+            <p>Pick a package and send your first track through the members-only form — guaranteed airplay starts at Tier 1.</p>
+            <a class="sbtn ghost" href="#concept" data-goto="submit">Submit Your Track</a>
+          </div>
+        </div>
+      </div>
+    </div><!-- /memberships -->
+
+    <!-- ===== PAGE: SUBMIT ===== -->
+    <div class="spage" data-page="submit">
+      <div class="phead pad">
+        <p class="kick">Members Only · Submissions</p>
+        <h3 class="disp">Submit Your Music</h3>
+        <p class="dek">Submissions are members-only — and they go through this form, not a Gmail inbox. Every submission lands in one tracked pipeline: received → reviewed → aired → featured, with follow-up at each step.</p>
+      </div>
+      <div class="ssec pad">
+        <div class="ssec-head"><h3 class="disp">How Submissions Work</h3></div>
+        <div class="steps">
+          <div class="step"><span class="n">1.</span><h4 class="disp">Join the club</h4><p>Pick your package — airplay is guaranteed from Tier 1. Submissions are open to members only.</p></div>
+          <div class="step"><span class="n">2.</span><h4 class="disp">Send your track</h4><p>Fill in the form below with your artist name, contact and a link to the track. It enters the review pipeline the moment you send it — nothing gets lost in an inbox.</p></div>
+          <div class="step"><span class="n">3.</span><h4 class="disp">Get heard</h4><p>Your track is reviewed, curated and sequenced into an episode — and you hear back at every step, from received to aired.</p></div>
+        </div>
+      </div>
+      <div class="ssec pad">
+        <form class="sform" id="submitForm">
+          <label>Artist / act name<input required name="artist" placeholder="Your artist name"></label>
+          <label>Contact email<input required type="email" name="email" placeholder="you@example.com"></label>
+          <label>Membership tier
+            <select name="tier"><option>Tier 1 — $20/mo</option><option selected>Tier 2 — $40/mo</option><option>Tier 3 — $60/mo</option><option>Tier 4 — $170/yr</option><option>Not a member yet — sign me up</option></select></label>
+          <label>Track title<input required name="title" placeholder="Track title"></label>
+          <label>Track link (MP3, streaming or cloud link)<input required type="url" name="link" placeholder="https://…"></label>
+          <label>Genre<input name="genre" placeholder="Pop, rock, hip-hop, country, EDM, Latin, jazz…"></label>
+          <label>Anything we should know?<textarea name="notes" placeholder="Release plans, the story behind the track…"></textarea></label>
+          <div><button class="sbtn red" type="submit">Submit Track</button></div>
+          <div class="formok" id="submitOk">Submission received — in the live build this lands straight in the Rock Raymond CRM pipeline (Submitted → In Review → Aired → Member), and the artist gets a confirmation and status follow-ups automatically. No more Gmail inbox.</div>
+        </form>
+        <div class="upsell" id="prUpsell">
+          <p class="kick">One More Thing · Hype Mechanics PR</p>
+          <h4 class="disp">Your track is in. Want a push behind the release?</h4>
+          <p>Airplay gets you heard — a PR campaign gets you covered. Hype Mechanics PR &amp; Media, Ray's own publicity company, runs packages from a $450 professional interview and distribution package up to full launch campaigns.</p>
+          <a class="sbtn red" href="#concept" data-goto="pr">See PR Packages — from $450</a>
+        </div>
+      </div>
+    </div><!-- /submit -->
+
+    <!-- ===== PAGE: LEGENDS ===== -->
+    <div class="spage" data-page="legends">
+      <div class="phead pad">
+        <p class="kick">The Podcast · Interviewing the Legends</p>
+        <h3 class="disp">700+ Interviews with Rock Legends</h3>
+        <p class="dek">Ray Shasho's long-running interview show — conversations with <b>Ann Wilson, Ian Anderson, Jon Anderson, Mark Farner</b> and more than 700 other legends. It's also the podcast home of the Rock Raymond roster: Tier 2 members and up get worldwide streaming and distribution for their music right here.</p>
+        <div class="cta-row" style="margin-top:18px">
+          <a class="sbtn red" href="https://www.youtube.com/channel/UCfAXkyD5vxFXypN4ZqcF-kQ" target="_blank" rel="noopener">▶ Interviewing the Legends on YouTube</a>
+          <a class="sbtn ghost" href="#concept" data-goto="books">Ray's Books</a>
+        </div>
+      </div>
+      <div class="ssec pad">
+        <div class="ssec-head"><h3 class="disp">On YouTube</h3><span class="byline">17.8K subscribers · 4.35M views</span></div>
+        <div class="cols2">
+          <div class="vid"><iframe src="https://www.youtube.com/embed/N1BrawoWrdc" title="Merrill Osmond interview — Interviewing the Legends" loading="lazy" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe></div>
+          <div>
+            <p class="kick">Featured Interview</p>
+            <h4 class="disp" style="font-size:1.5rem;margin:6px 0 8px">Merrill Osmond, in conversation</h4>
+            <p class="dek" style="margin:0 0 14px">Interviewing the Legends: Rock Stars &amp; Celebs is where Ray's 700+ conversations with the legends live — including this sit-down with Merrill Osmond. Watch it here, then browse the full archive on the channel.</p>
+            <a class="sbtn red" href="https://www.youtube.com/channel/UCfAXkyD5vxFXypN4ZqcF-kQ" target="_blank" rel="noopener">Visit the Channel</a>
+          </div>
+        </div>
+      </div>
+      <div class="ssec pad" id="backstage">
+        <div class="ssec-head"><h3 class="disp">Backstage Access</h3><span class="byline">The fan membership</span></div>
+        <p class="dek" style="max-width:46rem;margin:0 0 18px">Go backstage with the legends. Backstage Access is the membership for fans of the show — one signup, straight from this page.</p>
+        <div class="tiers two">
+          <article class="tier"><span class="tname">Backstage · Quarterly</span><p class="pos">Start backstage, renew quarterly.</p><div class="price">$34.99<small>/qtr</small></div>
+            <ul><li>Backstage Access membership to Interviewing the Legends</li><li>Renews quarterly — cancel anytime</li></ul>
+            <a class="sbtn ghost" href="#concept" data-goto="contact">Sign Up — Quarterly</a></article>
+          <article class="tier hot"><span class="bestflag">Best Value</span><span class="tname">Backstage · Annual</span><p class="pos">A full year backstage, one payment.</p><div class="price">$119.99<small>/yr</small></div>
+            <ul><li>A full year of Backstage Access</li><li>Save vs. quarterly — one payment</li></ul>
+            <a class="sbtn red" href="#concept" data-goto="contact">Sign Up — Annual</a></article>
+        </div>
+      </div>
+      <div class="ssec pad">
+        <blockquote class="pull">“I write songs for the people who feel invisible — the ones still waiting for someone to say, I see you, I hear you, and you matter.”<cite>— Kylie Willow, featured on Interviewing the Legends</cite></blockquote>
+      </div>
+    </div><!-- /legends -->
+
+    <!-- ===== PAGE: PR — HYPE MECHANICS ===== -->
+    <div class="spage" data-page="pr">
+      <div class="phead pad">
+        <p class="kick">Hype Mechanics PR &amp; Media · Ray Shasho's Publicity Company</p>
+        <h3 class="disp">Publicity That Puts You in the Story</h3>
+        <p class="dek">Hype Mechanics is Ray Shasho's own PR and media company — official sponsor of Rock Raymond Productions, and the studio behind the custom artwork Tier 3 members receive. Campaigns for authors, musicians and AI artists: interviews, press, launches and full productions, at published prices.</p>
+        <div class="cta-row" style="margin-top:18px">
+          <a class="sbtn red" href="https://publicityrocks.press/prpackages" target="_blank" rel="noopener">Book a Package — publicityrocks.press</a>
+          <a class="sbtn ghost" href="#concept" data-goto="memberships">Airplay Membership</a>
+        </div>
+      </div>
+      <div class="ssec pad">
+        <blockquote class="pull">“Building credibility got me here. Building revenue gets me there.”<cite>— Ray Shasho, founder, Hype Mechanics PR &amp; Media</cite></blockquote>
+      </div>
+      <div class="ssec pad">
+        <div class="ssec-head"><h3 class="disp">What We Do</h3><span class="byline">Service areas</span></div>
+        <ul class="coverlist">
+          <li>Author PR &amp; Book Launches</li>
+          <li>Musician &amp; Artist Publicity</li>
+          <li>AI Music Production &amp; Artist Development</li>
+          <li>AI Film &amp; Cinematic Content Creation</li>
+          <li>Brand Storytelling &amp; Media Strategy</li>
+          <li>Press Outreach</li>
+          <li>Interviews &amp; Media Placement</li>
+        </ul>
+      </div>
+      <div class="ssec pad">
+        <div class="ssec-head"><h3 class="disp">Packages &amp; Prices</h3><span class="byline">Published rates · Booked at publicityrocks.press</span></div>
+        <div class="tiers">
+          <article class="tier"><span class="tname" style="font-size:1.08rem">Zoom Professional Interview &amp; Distribution Package</span><div class="price">$450</div><a class="sbtn ghost" href="https://publicityrocks.press/prpackages" target="_blank" rel="noopener">Book This Package</a></article>
+          <article class="tier"><span class="tname" style="font-size:1.08rem">AI Songwriting &amp; Production</span><div class="price">$500</div><a class="sbtn ghost" href="https://publicityrocks.press/prpackages" target="_blank" rel="noopener">Book This Package</a></article>
+          <article class="tier"><span class="tname" style="font-size:1.08rem">Single Release PR Package</span><div class="price">$1,500</div><a class="sbtn ghost" href="https://publicityrocks.press/prpackages" target="_blank" rel="noopener">Book This Package</a></article>
+          <article class="tier"><span class="tname" style="font-size:1.08rem">Author Book Launch Package</span><div class="price">$1,500</div><a class="sbtn ghost" href="https://publicityrocks.press/prpackages" target="_blank" rel="noopener">Book This Package</a></article>
+          <article class="tier"><span class="tname" style="font-size:1.08rem">AI Soundtrack / Score Packages</span><div class="price">$2,500</div><a class="sbtn ghost" href="https://publicityrocks.press/prpackages" target="_blank" rel="noopener">Book This Package</a></article>
+          <article class="tier"><span class="tname" style="font-size:1.08rem">AI Artist Creative Package</span><div class="price">$2,500</div><a class="sbtn ghost" href="https://publicityrocks.press/prpackages" target="_blank" rel="noopener">Book This Package</a></article>
+          <article class="tier"><span class="tname" style="font-size:1.08rem">Author Visibility Package</span><div class="price">$3,000</div><a class="sbtn ghost" href="https://publicityrocks.press/prpackages" target="_blank" rel="noopener">Book This Package</a></article>
+          <article class="tier"><span class="tname" style="font-size:1.08rem">Album Launch Campaign</span><div class="price">$3,500</div><a class="sbtn ghost" href="https://publicityrocks.press/prpackages" target="_blank" rel="noopener">Book This Package</a></article>
+          <article class="tier"><span class="tname" style="font-size:1.08rem">AI Short Film Production Package</span><div class="price">$4,000</div><a class="sbtn ghost" href="https://publicityrocks.press/prpackages" target="_blank" rel="noopener">Book This Package</a></article>
+          <article class="tier"><span class="tname" style="font-size:1.08rem">Music PR Tier 1 Package</span><div class="price">$5,000</div><a class="sbtn ghost" href="https://publicityrocks.press/prpackages" target="_blank" rel="noopener">Book This Package</a></article>
+          <article class="tier"><span class="tname" style="font-size:1.08rem">AI Movie &amp; Trailer Tier 1 Production Package</span><div class="price">$6,000</div><a class="sbtn ghost" href="https://publicityrocks.press/prpackages" target="_blank" rel="noopener">Book This Package</a></article>
+          <article class="tier"><span class="tname" style="font-size:1.08rem">Full Book Launch Tier 1 Package</span><div class="price">$6,000</div><a class="sbtn ghost" href="https://publicityrocks.press/prpackages" target="_blank" rel="noopener">Book This Package</a></article>
+        </div>
+        <p class="note" style="margin-top:16px;color:var(--inksoft)">Packages and prices as published at <a href="https://publicityrocks.press/prpackages" target="_blank" rel="noopener">publicityrocks.press/prpackages</a> (verified Nov 17, 2026). Booking and payment run through Hype Mechanics PR &amp; Media directly.</p>
+      </div>
+    </div><!-- /pr -->
+
+    <!-- ===== PAGE: BOOKS ===== -->
+    <div class="spage" data-page="books">
+      <div class="phead pad">
+        <p class="kick">By Ray Shasho</p>
+        <h3 class="disp">Books</h3>
+        <p class="dek">Before the roster and the radio, Ray Shasho was an author and music journalist. His books:</p>
+      </div>
+      <div class="ssec pad">
+        <div class="cols2 ruled">
+          <div class="showbox"><p class="kick">Book</p><h4 class="disp">The Liberty Code</h4><p>By Ray Shasho — author, music journalist and founder of Rock Raymond Productions.</p><a class="sbtn ghost" href="https://www.rockraymondproductionsinc.com/" target="_blank" rel="noopener">Buy the Book</a></div>
+          <div class="showbox"><p class="kick">Book</p><h4 class="disp">The Rock Star Chronicles</h4><p>Drawn from Ray's decades of interviews with rock legends — the print companion to Interviewing the Legends.</p><a class="sbtn ghost" href="https://www.rockraymondproductionsinc.com/" target="_blank" rel="noopener">Buy the Book</a></div>
+        </div>
+      </div>
+    </div><!-- /books -->
+
+    <!-- ===== PAGE: PRESS ===== -->
+    <div class="spage" data-page="press">
+      <div class="phead pad">
+        <p class="kick">Press</p>
+        <h3 class="disp">What They're Saying</h3>
+        <p class="dek">Quotes and coverage for the world's first full-spectrum AI music powerhouse.</p>
+      </div>
+      <div class="ssec pad">
+        <div class="cols3 ruled">
+          <blockquote class="pull" style="font-size:1.25rem">“I write songs for the people who feel invisible — the ones still waiting for someone to say, I see you, I hear you, and you matter.”<cite>— Kylie Willow, quoted on Interviewing the Legends</cite></blockquote>
+          <blockquote class="pull" style="font-size:1.25rem">“AI musicians aren't a novelty — they're the next generation of global superstars.”<cite>— Ray Shasho, founder, Rock Raymond Productions Inc.</cite></blockquote>
+          <blockquote class="pull" style="font-size:1.25rem">“The world's first AI artist roster — a full creative ecosystem spanning artist development, production, branding, PR, and radio.”<cite>— Launch coverage, EIN Presswire</cite></blockquote>
+        </div>
+      </div>
+      <div class="ssec pad">
+        <p class="kick">Launch Press Release · EIN Presswire · May 31, 2026</p>
+        <h3 class="disp" style="font-size:clamp(1.7rem,3.8vw,2.6rem);margin:10px 0 18px;max-width:46rem">Rock Raymond Productions Inc. Launches the World's First Full-Spectrum AI Music Powerhouse</h3>
+        <div class="article">
+          <p class="dropcap"><b>TAMPA, Fla.</b> — Rock Raymond Productions Inc. announces the launch of the world's first full-spectrum AI music powerhouse: a complete creative ecosystem that discovers, develops and manages AI music artists across artist development, production, branding, PR and radio.</p>
+          <p>At its center is a full AI artist roster led by flagship artist Kylie Willow on Capsha Records, and W AI-1 — AI Top 40 Radio, the world's first all-AI Top 40 format, launched May 12, 2026 — hosted by Ray Ray the Deejay with co-host Signal Sage, alongside The Casey Kountdown countdown show. Membership tiers give AI artists guaranteed airplay, countdown placement, playlist rotation, podcast distribution, custom artwork through Hype Mechanics PR, and hosted artist profiles.</p>
+          <p>Founded in Tampa by author and music journalist Ray Shasho — host of Interviewing the Legends, with more than 700 interviews with rock legends — the company also operates Capsha Records and is officially sponsored by Hype Mechanics PR and Media. “AI musicians aren't a novelty — they're the next generation of global superstars.”</p>
+          <p><i>Full release as distributed via EIN Presswire, May 31, 2026.</i></p>
+        </div>
+      </div>
+    </div><!-- /press -->
+
+    <!-- ===== PAGE: AI MUSIC EXPLAINED ===== -->
+    <div class="spage" data-page="explained">
+      <div class="phead pad">
+        <p class="kick">New to AI Music?</p>
+        <h3 class="disp">AI Music Explained</h3>
+        <p class="dek">What an AI artist actually is, how the music gets made, and why a human still curates every second of it.</p>
+      </div>
+      <div class="ssec pad">
+        <div class="cols2 ruled">
+          <div class="showbox"><p class="kick">The Artists</p><h4 class="disp">Virtual performers, real catalogs</h4><p>An AI artist is a developed musical act — a voice, a style, a catalog — built with AI tools and human creative direction. Kylie Willow has five albums; the roster records and releases like any label stable.</p></div>
+          <div class="showbox"><p class="kick">The Music</p><h4 class="disp">Made with AI, finished by people</h4><p>Tracks are composed and produced with AI, then selected, sequenced and polished by human producers. Hundreds of submissions arrive weekly — only the strongest make an episode.</p></div>
+          <div class="showbox"><p class="kick">The Curation</p><h4 class="disp">Hand-picked, every episode</h4><p>AI Top 40 Radio and The Casey Kountdown are curated and sequenced by people — Ray Ray the Deejay and Signal Sage host, introduce and champion the tracks. Membership covers exactly that work: reviewing, curating, hosting, editing and producing.</p></div>
+          <div class="showbox"><p class="kick">The Point</p><h4 class="disp">A new generation of artists</h4><p>“AI musicians aren't a novelty — they're the next generation of global superstars.” Rock Raymond exists to develop them properly: real releases, real radio, real promotion.</p></div>
+        </div>
+        <div class="cta-row" style="margin-top:20px">
+          <a class="sbtn red" href="#concept" data-goto="artists">Meet the Artists</a>
+          <a class="sbtn ghost" href="#concept" data-goto="memberships">Join the Roster</a>
+        </div>
+      </div>
+    </div><!-- /explained -->
+
+    <!-- ===== PAGE: ABOUT ===== -->
+    <div class="spage" data-page="about">
+      <div class="phead pad">
+        <p class="kick">Who We Are</p>
+        <h3 class="disp">About Rock Raymond Productions</h3>
+        <p class="dek">Founded in Tampa, FL by author and music journalist <b>Ray Shasho</b>, Rock Raymond Productions Inc. discovers, develops, and manages the world's most innovative AI music artists — a full creative ecosystem spanning artist development, production, branding, PR, and radio. “AI musicians aren't a novelty — they're the next generation of global superstars.”</p>
+      </div>
+      <div class="ssec pad">
+        <div class="cols2 ruled">
+          <div class="showbox"><p class="kick">The Founder</p><h4 class="disp">Ray Shasho</h4><p>Author, music journalist and creative visionary. Ray has conducted 700+ interviews with rock legends on Interviewing the Legends, and wrote <i>The Liberty Code</i> and <i>The Rock Star Chronicles</i>. He founded Rock Raymond to give AI artists the same development, airplay and promotion human artists have always had.</p><p><a href="#concept" data-goto="books" style="font-weight:800">Ray's books →</a> · <a href="#concept" data-goto="legends" style="font-weight:800">The podcast →</a></p></div>
+          <div class="showbox"><p class="kick">The Company</p><h4 class="disp">One ecosystem</h4><p>The roster (Capsha Records) · the radio (W AI-1, AI Top 40 Radio &amp; The Casey Kountdown) · the podcast (Interviewing the Legends) · the PR (Hype Mechanics) — every part feeds the others, so a member's music moves from submission to airplay to distribution in one place.</p><p><a href="#concept" data-goto="memberships" style="font-weight:800">How membership works →</a></p></div>
+        </div>
+      </div>
+      <div class="ssec pad" id="sponsors">
+        <p class="kick">Official Sponsor</p>
+        <h3 class="disp" style="font-size:clamp(1.7rem,3.6vw,2.4rem);margin:8px 0 14px">Sponsors</h3>
+        <div class="cols2">
+          <p class="dek" style="margin:0"><b>Hype Mechanics PR and Media</b> — official sponsor of Rock Raymond Productions, and the PR studio behind Tier 3's custom single and album artwork for members.</p>
+          <div><a class="sbtn red" href="https://publicityrocks.press" target="_blank" rel="noopener">publicityrocks.press</a></div>
+        </div>
+      </div>
+    </div><!-- /about -->
+
+    <!-- ===== PAGE: CONTACT ===== -->
+    <div class="spage" data-page="contact">
+      <div class="phead pad">
+        <p class="kick">Get in Touch</p>
+        <h3 class="disp">Contact</h3>
+        <p class="dek">Memberships, Backstage Access, sponsorships, press — or just to talk AI music. One form, straight to the team in Tampa.</p>
+      </div>
+      <div class="ssec pad">
+        <div class="contactgrid">
+          <form class="sform" id="contactForm" style="max-width:none">
+            <label>Your name<input required name="name" placeholder="Your name"></label>
+            <label>Email<input required type="email" name="email" placeholder="you@example.com"></label>
+            <label>I'm here about
+              <select name="topic"><option>Membership / airplay</option><option>Backstage Access</option><option>Sponsorship</option><option>Press</option><option>Something else</option></select></label>
+            <label>Message<textarea required name="msg" placeholder="How can we help?"></textarea></label>
+            <div><button class="sbtn red" type="submit">Send Message</button></div>
+            <div class="formok" id="contactOk">Message received — in the live build this lands in the Rock Raymond CRM with an automatic reply and a follow-up task, instead of an untracked inbox.</div>
+          </form>
+          <div class="factbox">
+            <h4 class="disp">Rock Raymond Productions Inc.</h4>
+            <p>Phone — <a href="tel:+19412247891">941-224-7891</a></p>
+            <p>Email — <a href="mailto:rockraymondproductions@gmail.com">rockraymondproductions@gmail.com</a></p>
+            <p>Tampa, Florida</p>
+            <p style="margin-top:14px">Artists: submissions are members-only — use the <a href="#concept" data-goto="submit">submission form</a>, not email, so your track enters the review pipeline.</p>
+          </div>
+        </div>
+      </div>
+    </div><!-- /contact -->
+
+    <div class="sfoot pad">
+      <div>
+        <p class="fname">Rock Raymond Productions Inc.</p>
+        <p style="margin-top:6px">© Rock Raymond Productions Inc. · Capsha Records · <b>rockraymondproductionsinc.com</b> · Tampa, Florida</p>
+      </div>
+      <nav class="footnav" aria-label="Footer">
+        <a href="#concept" data-goto="radio">Radio</a><a href="#concept" data-goto="artists">Artists</a><a href="#concept" data-goto="memberships">Membership</a><a href="#concept" data-goto="submit">Submit</a><a href="#concept" data-goto="legends">Podcast</a><a href="#concept" data-goto="press">Press</a><a href="#concept" data-goto="pr">PR &amp; Media</a><a href="#concept" data-goto="books">Books</a><a href="#concept" data-goto="explained">AI Music Explained</a><a href="#concept" data-goto="about">About</a><a href="#concept" data-goto="contact">Contact</a>
+        <a href="https://www.rockraymondproductionsinc.com/" target="_blank" rel="noopener">Facebook</a><a href="https://www.rockraymondproductionsinc.com/" target="_blank" rel="noopener">Instagram</a><a href="https://www.rockraymondproductionsinc.com/" target="_blank" rel="noopener">YouTube</a>
+      </nav>
+    </div>
+    <div class="stickybar" aria-label="Join or submit">
+      <a href="#concept" data-goto="memberships">Join the Club</a>
+      <a class="sb-red" href="#concept" data-goto="submit">Submit a Track</a>
+    </div>
+  </div>
+  <div class="wrap">
+    <p class="note" style="margin-top:10px">Build notes: rebuilt from the Nov 17 research file (Third Man Records, RadioAirplay, ReverbNation, Suno) — editorial record-label design, warm paper and ink with one deep red, the catalog as the hero, full-bleed edge to edge. All thirteen pages are reachable from the frame's own navigation. Membership copy, prices, the Backstage Access prices ($34.99/qtr, $119.99/yr) and the press-release headline are theirs, from the live site (read Nov 17, 2026). Episode cards play the show's real YouTube uploads in place (Episodes 1–11, 15 and 16); episodes without a published video stay link cards to the live station. The Hype Mechanics PR page carries Ray's published packages and prices from publicityrocks.press/prpackages (verified Nov 17, 2026), and purchases link out there. The submission, contact and chart-signup forms are working in-page demos; in the delivered build they post into the CRM (Section 4). Footer socials resolve to Rock Raymond's own profiles at launch.</p>
+  </div>
+</section>
+
+
+<!-- ============ 2 · AUDIT ============ -->
+<section id="audit">
+  <div class="wrap">
+    <h2><span class="num">02</span> Why they need it — the audit</h2>
+    <p class="sub">What we found on <a href="https://www.rockraymondproductionsinc.com/" target="_blank" rel="noopener">rockraymondproductionsinc.com</a> on Nov 17, 2026. Every item here is a line in the pitch — each one costs them members.</p>
+    <div class="card">
+      <div class="finding"><span class="sev high">High</span><div>
+        <h3>The whole business lives on one endless page</h3>
+        <p>Radio, memberships, album promos, awards, the roster, the company bio, and a full press release are all stacked on a single scrolling homepage. There are no real pages for Artists, Radio, or About — so Google can't rank them separately, and a visitor hunting for the membership has to scroll past album promos to find it. <b>The product is buried in their own homepage.</b></p></div></div>
+      <div class="finding"><span class="sev high">High</span><div>
+        <h3>Top links that go nowhere</h3>
+        <p>Header/navigation items point at placeholder and unfinished routes (the site still carries default Squarespace-style paths like <b>/new-page</b> and <b>/new-page-1</b>), and key images link out to unrelated places — the main banner image links to Kylie Willow's separate site, and album art links off to Qobuz. A prospect who clicks the wrong hero image <b>leaves the site before ever seeing a price</b>.</p></div></div>
+      <div class="finding"><span class="sev high">High</span><div>
+        <h3>The footer names the wrong domain</h3>
+        <p>The copyright line at the bottom reads <b>“© Copyright rockraymondproductions.com”</b> — a different domain from the actual site, rockraymondproductions<b>inc</b>.com. Anyone who types what the footer says lands somewhere else. It's a small typo that quietly leaks their own traffic.</p></div></div>
+      <div class="finding"><span class="sev med">Med</span><div>
+        <h3>Memberships are sold like blog posts</h3>
+        <p>The four plans ($20 / $40 / $60 monthly, $170 annual) sit mid-page as store “Quick View” tiles with long paragraph descriptions. There's no comparison table, no “most popular” anchor, and no single checkout path — yet this is a <b>recurring-revenue subscription business</b> presented like a merch shelf.</p></div></div>
+      <div class="finding"><span class="sev med">Med</span><div>
+        <h3>Submissions run through a Gmail inbox</h3>
+        <p>Artists are told to email MP3s to a Gmail address to get on the playlist. With “hundreds of new tracks arriving every week” (their words), that means no tracking, no status, no follow-up sequence — and <b>no contact database being built</b> from the most valuable list they have: working AI musicians.</p></div></div>
+      <div class="finding"><span class="sev med">Med</span><div>
+        <h3>Duplicate and unlabeled imagery throughout</h3>
+        <p>The same placeholder artwork repeats across sections, roster “spotlights” are giant stacked images with no names or links attached, and the press quote block runs straight into a raw URL. It reads as a work-in-progress — <b>for a company asking artists to pay monthly for professional promotion</b>.</p></div></div>
+      <div class="finding"><span class="sev low">Low</span><div>
+        <h3>Good bones, hidden</h3>
+        <p>The raw material is genuinely strong: a real “world's first” claim, an EIN Presswire launch (May 31, 2026), a flagship artist with five albums, a countdown show, and a sister PR brand (Hype Mechanics PR). None of it is structured so a first-time visitor — or a search engine — can find it in ten seconds.</p></div></div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ 3 · MONEY ============ -->
+<section id="money">
+  <div class="wrap">
+    <h2><span class="num">03</span> What they make — and what we charge</h2>
+    <p class="sub">Their books are private, so this is a model, not a claim — built only from their public prices and their own “hundreds of submissions a week” statement. Drag the sliders to test your own assumptions; the recommendation below is set at the conservative end.</p>
+
+    <div class="card" style="margin-bottom:14px">
+      <div class="slider-row"><label>Paying members <output id="oMembers">75 members</output></label>
+        <input type="range" id="rMembers" min="10" max="300" step="5" value="75"></div>
+      <div class="slider-row"><label>Average plan (their tiers run $20–$60/mo; annual is $170/yr) <output id="oAvg">$40 / mo</output></label>
+        <input type="range" id="rAvg" min="20" max="60" step="5" value="40"></div>
+      <div class="calc-out" style="margin-top:16px">
+        <div class="stat"><div class="v" id="sMRR">$3,000</div><div class="l">Estimated monthly recurring revenue</div></div>
+        <div class="stat"><div class="v" id="sARR">$36,000</div><div class="l">Estimated annual run-rate</div></div>
+        <div class="stat"><div class="v" id="sPayback">&lt; 1 month</div><div class="l">Time for our recommended build fee to pay for itself at this size</div></div>
+      </div>
+      <p class="note" style="margin-top:12px">Our working estimate for their actual membership gross is $1,000–$3,000/mo (unverified; audience is still small — roughly 140 Facebook and 1,700 Instagram followers). Even the floor case — just 25 members at the $20 tier — is $500/mo, $6,000/yr, from memberships alone, before album sales, PR services, or sponsorships. The submission volume they describe (“hundreds of tracks every week”) points to a funnel far bigger than their member count — which is exactly the leak a real site + CRM plugs.</p>
+    </div>
+
+    <div class="grid c2">
+      <div class="card">
+        <h3 style="margin:0 0 8px;font-size:1.35rem;text-transform:uppercase">Scenario table</h3>
+        <table>
+          <tr><th>Scenario</th><th class="n">Members</th><th class="n">Avg</th><th class="n">MRR</th><th class="n">Per year</th></tr>
+          <tr><td>Floor</td><td class="n">25</td><td class="n">$20</td><td class="n">$500</td><td class="n">$6,000</td></tr>
+          <tr><td>Conservative</td><td class="n">50</td><td class="n">$40</td><td class="n">$2,000</td><td class="n">$24,000</td></tr>
+          <tr><td><b>Likely (our planning case)</b></td><td class="n">75</td><td class="n">$40</td><td class="n">$3,000</td><td class="n">$36,000</td></tr>
+          <tr><td>Strong</td><td class="n">150</td><td class="n">$45</td><td class="n">$6,750</td><td class="n">$81,000</td></tr>
+        </table>
+        <p class="note" style="margin-top:10px">Modeled estimates from public pricing only — we do not present these to Rock Raymond as their actual revenue. In the pitch they're framed as “even at a fraction of your submission volume…”</p>
+      </div>
+      <div class="rec">
+        <h3>Recommended price to send</h3>
+        <div class="bigprice">$1,500 <span style="font-size:1.2rem">one-time build</span></div>
+        <p style="margin:8px 0"><b>+ $297/mo</b> for hosting, care, and the CRM (contacts, pipelines, follow-up automations) — see Section 4.</p>
+        <ul class="tight">
+          <li><b>Why it lands:</b> their membership gross is estimated at $1,000–$3,000/mo (unverified — small audience, ~140 Facebook / ~1,700 Instagram followers), so a $1,500 build is roughly one month of membership revenue, not a leap of faith.</li>
+          <li><b>First-year value:</b> $1,500 + $297 × 12 = <b>$5,064</b> — the figure already on the open opportunity in the CRM.</li>
+          <li><b>Payment:</b> 50% to start, 50% at launch. Monthly starts at launch, cancel anytime after month 3.</li>
+          <li><b>Walk-away floor:</b> $1,250 build + $247/mo. Below that, the CRM + care workload isn't worth it.</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ 4 · CRM ============ -->
+<section id="crm">
+  <div class="wrap">
+    <h2><span class="num">04</span> The CRM — the real recurring win</h2>
+    <p class="sub">The website is the door; the CRM is the engine. Today every artist relationship lives in a Gmail inbox and Ray's memory. Here's what the $297/mo actually buys them — and the pipeline we'd load them into on our side too.</p>
+    <div class="grid c3">
+      <div class="card"><h3 style="margin:0 0 6px;font-size:1.3rem;text-transform:uppercase">Every contact, one place</h3>
+        <p style="margin:0;color:var(--muted)">Every submission, member, sponsor, and press contact captured automatically from the new site's forms — tagged by tier, genre, and status. No more searching Gmail for “that one track from March.”</p></div>
+      <div class="card"><h3 style="margin:0 0 6px;font-size:1.3rem;text-transform:uppercase">Follow-up that sells tiers</h3>
+        <p style="margin:0;color:var(--muted)">Automatic sequences: submission received → reviewed → aired → “ready for guaranteed rotation?” Tier 1 → Tier 2 upgrade prompts after an artist's first countdown feature. Renewal reminders before the $170 annual lapses.</p></div>
+      <div class="card"><h3 style="margin:0 0 6px;font-size:1.3rem;text-transform:uppercase">A pipeline they can see</h3>
+        <p style="margin:0;color:var(--muted)">Submitted → In Review → Aired → Member → Renewed, on one board. Ray sees exactly how many artists are about to convert — and how many are about to churn — at a glance.</p></div>
+    </div>
+    <div class="card" style="margin-top:14px">
+      <h3 style="margin:0 0 8px;font-size:1.3rem;text-transform:uppercase">On our side: Rock Raymond goes into Fresh's CRM</h3>
+      <p style="margin:0 0 6px">Added Nov 17 at your direction — the Fresh desk logged Ray Shasho in HighLevel with an open opportunity at $5,064 first-year value. The record, as logged:</p>
+      <table>
+        <tr><th style="width:34%">Field</th><th>Value</th></tr>
+        <tr><td>Company</td><td>Rock Raymond Productions Inc.</td></tr>
+        <tr><td>Contact</td><td>Ray Shasho — Founder</td></tr>
+        <tr><td>Email / Phone (public, from their site &amp; press release)</td><td>rockraymondproductions@gmail.com · 941-224-7891</td></tr>
+        <tr><td>Location</td><td>Tampa, FL</td></tr>
+        <tr><td>Pipeline stage</td><td>Prospect — Pitch drafted, NOT contacted</td></tr>
+        <tr><td>Offer</td><td>Website rebuild $1,500 + CRM &amp; care $297/mo · $5,064 first-year value</td></tr>
+        <tr><td>Tags</td><td>ai-music · radio · membership-business · website-audit</td></tr>
+        <tr><td>Next step</td><td>Nailah approves pitch content &amp; send timing → then send (CRM record is already in)</td></tr>
+      </table>
+    </div>
+  </div>
+</section>
+
+<!-- ============ 5 · PITCH ============ -->
+<section id="pitch">
+  <div class="wrap">
+    <h2><span class="num">05</span> The pitch — draft, held for approval</h2>
+    <p class="sub">Written to Ray, in Fresh's voice: lead with the specific problems (they prove we actually looked), show the fix, price it against his own membership math. Nothing sends until you approve the content and the timing.</p>
+    <div class="draft" id="pitchText"><b>Subject: I rebuilt your homepage — here's why (and what it's costing you)</b>
+
+Hi Ray,
+
+I'm Nailah with Fresh Marketing Solution. I found Rock Raymond through your AI Top 40 work — the "world's first AI artist roster" is a genuinely strong claim, and W AI-1 is exactly the kind of thing that should be easy to join.
+
+Right now, it isn't. A few things I found on rockraymondproductionsinc.com this week:
+
+• Everything — the radio, the roster, the memberships, the press release — lives on one endless page, so the $170 annual plan sits buried under album promos.
+• Some top links lead to unfinished placeholder pages, and your main banner image links visitors away to a different site before they ever see a price.
+• Your footer lists the wrong domain (rockraymondproductions.com — no "inc"), which sends your own traffic somewhere else.
+• Artists submit by emailing MP3s to a Gmail inbox, so hundreds of weekly submissions never become a contact list you can follow up with.
+
+So we built you the fix first, and the pitch second. There's a full redesign waiting for you — broadcast-first homepage, real artist pages, your four membership tiers presented like the subscription business they are, and a submission portal that captures every artist into a CRM with automatic follow-up (submission → review → airplay → membership upgrade).
+
+The math is simple: at your own prices, the rebuild pays for itself with roughly a month of memberships.
+
+Website rebuild: $1,500 one-time (50% to start, 50% at launch)
+Site care + CRM: $297/month — hosting, updates, all contacts and pipelines in one place, follow-up automations included
+
+I can send you the live preview link today, and if you like it, we can have it live on your domain within two weeks. If you don't, the audit above is yours to keep either way.
+
+Worth a 15-minute look?
+
+— Nailah Jeffries
+Fresh Marketing Solution
+freshmarketingsolution.com</div>
+    <div class="actions">
+      <button class="btn btn-dark" id="copyBtn">📋 Copy pitch</button>
+      <a class="btn btn-plain" href="mailto:rockraymondproductions@gmail.com?subject=I%20rebuilt%20your%20homepage%20%E2%80%94%20here's%20why%20(and%20what%20it's%20costing%20you)" style="text-decoration:none">Open in email (you press send)</a>
+    </div>
+    <p class="note" style="margin-top:10px">The mailto button only opens a draft in your own email app — nothing is sent from this page. Sending still needs your explicit go-ahead on content and timing, per your standing rule.</p>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    Sources: rockraymondproductionsinc.com homepage, membership pages, and AI Top 40 press release (EIN Presswire, May 31, 2026), all read Nov 17, 2026. Membership prices ($20/$40/$60 monthly, $170 annual) are quoted from the live site. Revenue figures are labeled models from those public prices — not the company's actual books. Concept prepared by Fresh Marketing Solution as a spec pitch; Rock Raymond Productions Inc. has not commissioned or endorsed it.
+  </div>
+</footer>
+
+<div class="toast" id="toast" role="status"></div>
+
+<script>
+  var toast = document.getElementById('toast');
+  function showToast(msg){ toast.textContent = msg; toast.classList.add('show'); setTimeout(function(){ toast.classList.remove('show'); }, 2600); }
+
+  // Revenue calculator
+  var BUILD = 1500;
+  var rM = document.getElementById('rMembers'), rA = document.getElementById('rAvg');
+  function fmt(n){ return '$' + n.toLocaleString('en-US'); }
+  function calc(){
+    var m = parseInt(rM.value, 10), a = parseInt(rA.value, 10);
+    var mrr = m * a;
+    document.getElementById('oMembers').textContent = m + ' members';
+    document.getElementById('oAvg').textContent = '$' + a + ' / mo';
+    document.getElementById('sMRR').textContent = fmt(mrr);
+    document.getElementById('sARR').textContent = fmt(mrr * 12);
+    var months = mrr > 0 ? BUILD / mrr : 99;
+    document.getElementById('sPayback').textContent = months <= 1 ? '< 1 month' : (Math.round(months * 10) / 10) + ' months';
+  }
+  rM.addEventListener('input', calc); rA.addEventListener('input', calc); calc();
+
+  // Copy pitch
+  document.getElementById('copyBtn').addEventListener('click', function(){
+    var text = document.getElementById('pitchText').innerText;
+    if (navigator.clipboard && navigator.clipboard.writeText) {
+      navigator.clipboard.writeText(text).then(function(){ showToast('Pitch copied — paste it wherever you send from.'); },
+        function(){ showToast('Copy blocked here — long-press the pitch text to copy it manually.'); });
+    } else { showToast('Long-press the pitch text to copy it manually.'); }
+  });
+</script>
+<script>
+  // ---- Concept site: page routing inside the stage ----
+  var stageEl = document.querySelector('.stage');
+  function gotoPage(name, anchor){
+    stageEl.querySelectorAll('.spage').forEach(function(p){ p.classList.toggle('on', p.getAttribute('data-page') === name); });
+    stageEl.querySelectorAll('.snav nav a').forEach(function(a){ a.classList.toggle('on', a.getAttribute('data-goto') === name); });
+    if (anchor) {
+      var t = document.getElementById(anchor);
+      if (t) { t.scrollIntoView({behavior:'smooth', block:'start'}); return; }
+    }
+    stageEl.scrollIntoView({behavior:'smooth', block:'start'});
+  }
+  // ---- Mobile site menu toggle (the toggle only renders on small screens) ----
+  var snavEl = stageEl.querySelector('.snav');
+  var snavToggle = stageEl.querySelector('.snav-toggle');
+  function closeSnav(){
+    if (!snavEl || !snavToggle) return;
+    snavEl.classList.remove('open');
+    snavToggle.setAttribute('aria-expanded', 'false');
+    var t = snavToggle.querySelector('.tgl-text');
+    if (t) t.textContent = 'Menu';
+  }
+  if (snavEl && snavToggle) {
+    snavToggle.addEventListener('click', function(){
+      var open = snavEl.classList.toggle('open');
+      snavToggle.setAttribute('aria-expanded', open ? 'true' : 'false');
+      var t = snavToggle.querySelector('.tgl-text');
+      if (t) t.textContent = open ? 'Close' : 'Menu';
+    });
+  }
+
+  document.querySelectorAll('[data-goto]').forEach(function(el){
+    el.addEventListener('click', function(e){
+      e.preventDefault();
+      closeSnav();
+      gotoPage(el.getAttribute('data-goto'), el.getAttribute('data-anchor'));
+    });
+  });
+
+  // ---- Episode archive: playable cards use the show's real YouTube uploads ----
+  var epGrid = document.getElementById('epGrid');
+  if (epGrid) {
+    var LIVE = 'https://www.rockraymondproductionsinc.com/';
+    var VIDS = {1:'8lzuyfKihXk',2:'2XNXQ8x-axw',3:'tw7rGDb_9g0',4:'9YaHq_Tl5tY',5:'h1-QUduXQBM',6:'A6UGUHOOMGg',7:'Ll7sY_-c7wY',8:'JbPpTE1gkcY',9:'gtQ2vAxGnaY',10:'wjMKZLe_RDM',11:'vmCM4_rPVME',15:'tIERxOCZ1pI',16:'G2msK4NsL3A'};
+    var html = '';
+    for (var n = 16; n >= 1; n--) {
+      var vid = VIDS[n];
+      html += '<article class="ep">';
+      if (vid) {
+        html += '<div class="vid"><button class="vidplay" type="button" data-vid="' + vid + '" data-title="AI Top 40 Radio — Episode ' + n + '" aria-label="Play Episode ' + n + '"><span class="tri">▶</span><span class="vl">Play Episode ' + n + '</span></button></div>';
+      }
+      html += '<div class="epn">No. ' + n + '</div>' +
+        '<div class="ept">AI Top 40 — Episode ' + n + (n === 16 ? ' · Latest' : '') + '</div>' +
+        '<p>The weekly AI Top 40 countdown with Ray Ray the Deejay &amp; Signal Sage.</p>' +
+        '<div class="eplinks"><a href="' + LIVE + '" target="_blank" rel="noopener">▶ Listen</a>' +
+        (vid ? '<a href="https://www.youtube.com/watch?v=' + vid + '" target="_blank" rel="noopener">YouTube</a>' : '<a href="' + LIVE + '" target="_blank" rel="noopener">Watch</a>') +
+        '</div></article>';
+    }
+    epGrid.innerHTML = html;
+  }
+
+  // ---- Click-to-play: swap the facade for the real YouTube embed ----
+  document.querySelectorAll('.vidplay').forEach(function(btn){
+    btn.addEventListener('click', function(){
+      var wrap = btn.parentNode;
+      var ifr = document.createElement('iframe');
+      ifr.src = 'https://www.youtube.com/embed/' + btn.getAttribute('data-vid') + '?autoplay=1&rel=0';
+      ifr.title = btn.getAttribute('data-title') || 'AI Top 40 Radio episode';
+      ifr.setAttribute('allow', 'accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture');
+      ifr.setAttribute('allowfullscreen', '');
+      wrap.replaceChild(ifr, btn);
+    });
+  });
+
+  // ---- Demo forms: submissions, contact & chart signups ----
+  [['submitForm','submitOk'],['contactForm','contactOk'],['chartFormHome','chartOkHome'],['chartFormMember','chartOkMember']].forEach(function(pair){
+    var f = document.getElementById(pair[0]);
+    if (!f) return;
+    f.addEventListener('submit', function(e){
+      e.preventDefault();
+      document.getElementById(pair[1]).classList.add('show');
+      showToast('Received — in the live build this posts straight into the CRM.');
+      f.reset();
+      if (pair[0] === 'submitForm') {
+        var up = document.getElementById('prUpsell');
+        if (up) { up.classList.add('show'); up.scrollIntoView({behavior:'smooth', block:'center'}); }
+      }
+    });
+  });
+</script>
+</body>
+</html>
